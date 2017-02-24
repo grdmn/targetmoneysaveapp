@@ -16,14 +16,13 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        //logOut()
+        logOut()
         
         if(FIRAuth.auth()?.currentUser == nil){
             
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
         
             self.navigationController?.present(loginVC, animated: true, completion: nil)
-            
             
         }
         
