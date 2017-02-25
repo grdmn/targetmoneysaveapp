@@ -1,29 +1,26 @@
 //
-//  HomeViewController.swift
+//  ShowAllTargetViewController.swift
 //  targetmoneysaveapp
 //
-//  Created by Apple Macintosh on 2/24/17.
+//  Created by Apple Macintosh on 2/25/17.
 //  Copyright © 2017 Apple Macintosh. All rights reserved.
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView:UITableView!
-    
-    //var MoneyDataArray = [MoneyData]()
-    
+    @IBOutlet weak var tableView: UITableView!
+
     var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         tableView.delegate = self
@@ -34,17 +31,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(FIRAuth.auth()?.currentUser == nil){
             
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-        
+            
             self.navigationController?.present(loginVC, animated: true, completion: nil)
             
         }
         
-//        var moneyData = MoneyData(moneyText: "Test1")
-//        MoneyDataArray.append(moneyData)
-//        moneyData = MoneyData(moneyText: "Test2")
-//        MoneyDataArray.append(moneyData)
-
-
+        //        var moneyData = MoneyData(moneyText: "Test1")
+        //        MoneyDataArray.append(moneyData)
+        //        moneyData = MoneyData(moneyText: "Test2")
+        //        MoneyDataArray.append(moneyData)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func databaseInit(){
         databaseRef = FIRDatabase.database().reference()
         
-        _databaseHandle = self.databaseRef.child("MoneyStatus").observe(.childAdded, with: { (firebaseSnapshot) in
+        _databaseHandle = self.databaseRef.child("TargetStatus").observe(.childAdded, with: { (firebaseSnapshot) in
             self.firDataSnapshotArray.append(firebaseSnapshot)
             
             let indexPathOfLastRow = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
@@ -68,7 +65,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func databaseRelease(){
         if(_databaseHandle == nil) {
-            self.databaseRef.child("MoneyStatus").removeObserver(withHandle: _databaseHandle)
+            self.databaseRef.child("TargetStatus").removeObserver(withHandle: _databaseHandle)
             _databaseHandle = nil
         }
     }
@@ -101,35 +98,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let moneyData = MoneyDataArray[indexPath.row]
-//        
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//        }
-//        else{
-//            
-//            let cell = StatusMoneyTableViewCell()
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//            
-//        }
+        //        let moneyData = MoneyDataArray[indexPath.row]
+        //
+        //        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
+        //            cell.setValue(moneyData: moneyData)
+        //
+        //            return cell
+        //        }
+        //        else{
+        //
+        //            let cell = StatusMoneyTableViewCell()
+        //            cell.setValue(moneyData: moneyData)
+        //
+        //            return cell
+        //
+        //        }
         
         let firDataSnapshot = self.firDataSnapshotArray[indexPath.row]
         let snapShotValue = firDataSnapshot.value as! Dictionary<String, AnyObject>
         var strText = ""
         
-        if let tempstrText = snapShotValue[MoneyData.MONEYTEXT_ID] as! String! {
+        if let tempstrText = snapShotValue[MoneyData.NAMETARGET_ID] as! String! {
             strText = tempstrText
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTargetViewCell") as? ShowTargetAllTableViewCell {
             
             if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText)
-                cell.setValue(moneyData: moneyData)
+                let targetData = MoneyData(nameTargetText: strText)
+                cell.setValue(moneyData: targetData)
             }
             
             return cell
@@ -138,8 +135,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = StatusMoneyTableViewCell()
             if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText)
-                cell.setValue(moneyData: moneyData)
+                let targetData = MoneyData(nameTargetText: strText)
+                cell.setValue(moneyData: targetData)
             }
             
             return cell
