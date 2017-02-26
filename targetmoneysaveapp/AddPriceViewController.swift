@@ -1,5 +1,5 @@
 //
-//  AddNameTargetViewController.swift
+//  AddPriceViewController.swift
 //  targetmoneysaveapp
 //
 //  Created by Apple Macintosh on 2/25/17.
@@ -9,9 +9,9 @@
 import UIKit
 import Firebase
 
-class AddNameTargetViewController: UIViewController {
+class AddPriceViewController: UIViewController {
     
-    @IBOutlet weak var inputTargetTxt: UITextField!
+    @IBOutlet weak var inputPriceTxt:UITextField!
 
     var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
@@ -22,7 +22,7 @@ class AddNameTargetViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+//        
 //        logOut()
 //        
 //        if(FIRAuth.auth()?.currentUser == nil){
@@ -35,7 +35,7 @@ class AddNameTargetViewController: UIViewController {
         
         
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -55,8 +55,8 @@ class AddNameTargetViewController: UIViewController {
         })
     }
     
-   
-
+    
+    
 //    func logOut() {
 //        do{
 //            try FIRAuth.auth()?.signOut()
@@ -70,35 +70,36 @@ class AddNameTargetViewController: UIViewController {
     deinit {
         
     }
-
-    @IBAction func btnSendNameTarget(_ sender: Any) {
+    
+    @IBAction func btnSendPriceTarget(_ sender: Any) {
         
-        if((inputTargetTxt.text?.characters.count)! > 0) {
-            let nameTargetData = TargetData(nameTargetText: inputTargetTxt.text!)
-            
-            sendTargetName(nameTargetData: nameTargetData)
-            inputTargetTxt.text = ""
+        if((inputPriceTxt.text?.characters.count)! > 0) {
+            let priceData = TargetData(priceText: inputPriceTxt.text!, datetimeText:Const().CurrentDateTimeToStr())
+            sendPrice(priceData: priceData)
+            inputPriceTxt.text = ""
         }
         
     }
     
-    func sendTargetName(nameTargetData: TargetData) {
+    func sendPrice(priceData: TargetData) {
         
-//        var dataValue = [String: String]()
-//        dataValue[MoneyData.NAMETARGET_ID] = nameTargetData.nameTargetText
+        //        var dataValue = [String: String]()
+        //        dataValue[MoneyData.NAMETARGET_ID] = nameTargetData.nameTargetText
         
         let dataValue: Dictionary<String, AnyObject> =
-        [
-            TargetData.NAMETARGET_ID: nameTargetData.NameTargetText as AnyObject
+            [
+                TargetData.PRICETEXT_ID: priceData.PriceText as AnyObject,
+                TargetData.DATETIMETEXT_ID: priceData.DateTimeText as AnyObject
         ]
         self.databaseRef.child("AddTarget").childByAutoId().setValue(dataValue)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
+   
 }

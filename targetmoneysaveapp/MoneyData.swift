@@ -11,28 +11,22 @@ import Foundation
 class MoneyData{
     
     static let MONEYTEXT_ID = "MoneyText"
-    static let NAMETARGET_ID = "NameTargetText"
-    static let PRICETEXT_ID = "PriceText"
+    static let DATETIMETEXT_ID = "DateTime"
     
     
     private var _moneyText:String!
-    private var _nameTargetText:String!
-    private var _priceText:String!
+    private var _datetimeText:String!
     
     var MoneyText:String{
         return _moneyText
     }
     
-    var NameTargetText:String{
-        return _nameTargetText
+    var DateTimeText:String{
+        return _datetimeText
     }
     
-    init(moneyText:String) {
+    init(moneyText:String, datetimeText:String) {
         self._moneyText = moneyText
+        self._datetimeText = datetimeText
     }
-    
-    init(nameTargetText:String) {
-        self._nameTargetText = nameTargetText
-    }
-    
 }

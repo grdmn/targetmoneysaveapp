@@ -125,10 +125,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             strText = tempstrText
         }
         
+        var strDateTime = ""
+        if let tempstrDateTime = snapShotValue[MoneyData.DATETIMETEXT_ID] as! String! {
+            strDateTime = tempstrDateTime
+        }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
             
             if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText)
+                let moneyData = MoneyData(moneyText: strText, datetimeText: strDateTime)
                 cell.setValue(moneyData: moneyData)
             }
             
@@ -138,7 +143,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = StatusMoneyTableViewCell()
             if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText)
+                let moneyData = MoneyData(moneyText: strText, datetimeText: strDateTime)
                 cell.setValue(moneyData: moneyData)
             }
             

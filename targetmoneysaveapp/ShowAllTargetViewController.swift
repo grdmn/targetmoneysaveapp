@@ -26,20 +26,15 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
-        logOut()
-        
-        if(FIRAuth.auth()?.currentUser == nil){
-            
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-            
-            self.navigationController?.present(loginVC, animated: true, completion: nil)
-            
-        }
-        
-        //        var moneyData = MoneyData(moneyText: "Test1")
-        //        MoneyDataArray.append(moneyData)
-        //        moneyData = MoneyData(moneyText: "Test2")
-        //        MoneyDataArray.append(moneyData)
+//        logOut()
+//        
+//        if(FIRAuth.auth()?.currentUser == nil){
+//            
+//            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
+//            
+//            self.navigationController?.present(loginVC, animated: true, completion: nil)
+//            
+//        }
         
         
     }
@@ -53,10 +48,11 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
     func databaseInit(){
         databaseRef = FIRDatabase.database().reference()
         
-        _databaseHandle = self.databaseRef.child("TargetStatus").observe(.childAdded, with: { (firebaseSnapshot) in
+        _databaseHandle = self.databaseRef.child("AddTarget").observe(.childAdded, with: { (firebaseSnapshot) in
             self.firDataSnapshotArray.append(firebaseSnapshot)
             
-            let indexPathOfLastRow = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
+            let indexPathOfLastRow
+                = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
             self.tableView.insertRows(at: [indexPathOfLastRow], with: .automatic)
             
             
@@ -65,20 +61,20 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
     
     func databaseRelease(){
         if(_databaseHandle == nil) {
-            self.databaseRef.child("TargetStatus").removeObserver(withHandle: _databaseHandle)
+            self.databaseRef.child("AddTarget").removeObserver(withHandle: _databaseHandle)
             _databaseHandle = nil
         }
     }
     
     
-    func logOut() {
-        do{
-            try FIRAuth.auth()?.signOut()
-        }
-        catch let error as NSError{
-            print(error.localizedDescription)
-        }
-    }
+//    func logOut() {
+//        do{
+//            try FIRAuth.auth()?.signOut()
+//        }
+//        catch let error as NSError{
+//            print(error.localizedDescription)
+//        }
+//    }
     
     
     deinit {
@@ -98,47 +94,57 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //        let moneyData = MoneyDataArray[indexPath.row]
-        //
-        //        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
-        //            cell.setValue(moneyData: moneyData)
-        //
-        //            return cell
-        //        }
-        //        else{
-        //
-        //            let cell = StatusMoneyTableViewCell()
-        //            cell.setValue(moneyData: moneyData)
-        //
-        //            return cell
-        //
-        //        }
         
         let firDataSnapshot = self.firDataSnapshotArray[indexPath.row]
         let snapShotValue = firDataSnapshot.value as! Dictionary<String, AnyObject>
+        
         var strText = ""
         
-        if let tempstrText = snapShotValue[MoneyData.NAMETARGET_ID] as! String! {
+        if let tempstrText = snapShotValue[TargetData.NAMETARGET_ID] as! String! {
             strText = tempstrText
         }
         
+        var strPrice = ""
+        
+        if let tempsstrPrice = snapShotValue[TargetData.PRICETEXT_ID] as! String! {
+            strPrice = tempsstrPrice
+        }
+        
+        var strDateTime = ""
+        if let tempstrDateTime = snapShotValue[MoneyData.DATETIMETEXT_ID] as! String! {
+            strDateTime = tempstrDateTime
+        }
+
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTargetViewCell") as? ShowTargetAllTableViewCell {
             
-            if (strText != ""){
-                let targetData = MoneyData(nameTargetText: strText)
-                cell.setValue(moneyData: targetData)
+            if (strText != "" && strPrice != "" ){
+                let targetData = TargetData(nameTargetText: strText)
+                let targetDataprice = TargetData(priceText: strPrice, datetimeText: strDateTime)
+                
+                cell.setValue(targetData: targetData, priceData: targetDataprice)
+//                cell.setValue(priceData: targetDataprice)
             }
+            
+//            if (strPrice != ""){
+//                let priceData = TargetDataPrice(priceText: strPrice)
+//                
+//                cell.setValue(priceData: priceData)
+//            }
             
             return cell
         }
         else{
             
-            let cell = StatusMoneyTableViewCell()
-            if (strText != ""){
-                let targetData = MoneyData(nameTargetText: strText)
-                cell.setValue(moneyData: targetData)
+            let cell = ShowTargetAllTableViewCell()
+            if (strText != "" && strPrice != ""){
+                let targetData = TargetData(nameTargetText: strText)
+                let targetDataprice = TargetData(priceText: strPrice,datetimeText: strDateTime)
+                
+//                cell.setValue(targetData: targetData)
+//                cell.setValue(priceData: targetDataprice)
+                cell.setValue(targetData: targetData, priceData: targetDataprice)
             }
-            
             return cell
         }
     }

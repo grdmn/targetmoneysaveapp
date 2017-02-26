@@ -33,6 +33,9 @@
 		84E476481E608D5D00B9C289 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */; };
 		84E4764A1E60950E00B9C289 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E476491E60950E00B9C289 /* HomeViewController.swift */; };
 		84E4764E1E609B3200B9C289 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4764D1E609B3200B9C289 /* LoginViewController.swift */; };
+		84F23EC71E61A07300C6B4EA /* AddPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */; };
+		84F23EC91E61BD6600C6B4EA /* TargetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F23EC81E61BD6600C6B4EA /* TargetData.swift */; };
+		84F23ECB1E61C16F00C6B4EA /* TargetDataPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F23ECA1E61C16F00C6B4EA /* TargetDataPrice.swift */; };
 		84F2D0DA1E3BEDA300AC023D /* ShowTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2D0D91E3BEDA300AC023D /* ShowTargetViewController.swift */; };
 		9752CA5DFC516F7E7C67750E /* Pods_targetmoneysaveapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1920537218AE101DD80D692A /* Pods_targetmoneysaveapp.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +73,9 @@
 		84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = ../ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		84E476491E60950E00B9C289 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84E4764D1E609B3200B9C289 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPriceViewController.swift; sourceTree = "<group>"; };
+		84F23EC81E61BD6600C6B4EA /* TargetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetData.swift; sourceTree = "<group>"; };
+		84F23ECA1E61C16F00C6B4EA /* TargetDataPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetDataPrice.swift; sourceTree = "<group>"; };
 		84F2D0D91E3BEDA300AC023D /* ShowTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTargetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,9 +147,12 @@
 				84E476491E60950E00B9C289 /* HomeViewController.swift */,
 				84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */,
 				84690E091E61437D0038C490 /* MoneyData.swift */,
+				84F23EC81E61BD6600C6B4EA /* TargetData.swift */,
+				84F23ECA1E61C16F00C6B4EA /* TargetDataPrice.swift */,
 				84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */,
 				84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */,
 				84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */,
+				84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */,
 			);
 			path = targetmoneysaveapp;
 			sourceTree = "<group>";
@@ -290,8 +299,10 @@
 				84690E101E617C200038C490 /* ShowTargetAllTableViewCell.swift in Sources */,
 				84F2D0DA1E3BEDA300AC023D /* ShowTargetViewController.swift in Sources */,
 				84B822491E24227A004D58F7 /* TargetPageViewController.swift in Sources */,
+				84F23ECB1E61C16F00C6B4EA /* TargetDataPrice.swift in Sources */,
 				844418B41E3A6A23000DF349 /* SignupViewController.swift in Sources */,
 				84B822471E241E2B004D58F7 /* ComposeViewController.swift in Sources */,
+				84F23EC71E61A07300C6B4EA /* AddPriceViewController.swift in Sources */,
 				84DA422D1E2C682F0001DF7D /* DashboardViewController.swift in Sources */,
 				844418B61E3A6AE7000DF349 /* SigninViewController.swift in Sources */,
 				84B822331E240B5C004D58F7 /* ViewController.swift in Sources */,
@@ -306,6 +317,7 @@
 				84E4764E1E609B3200B9C289 /* LoginViewController.swift in Sources */,
 				84690E0E1E6179FF0038C490 /* ShowAllTargetViewController.swift in Sources */,
 				84E476481E608D5D00B9C289 /* ForgotPasswordViewController.swift in Sources */,
+				84F23EC91E61BD6600C6B4EA /* TargetData.swift in Sources */,
 				84B822311E240B5C004D58F7 /* AppDelegate.swift in Sources */,
 				8481A7A31E5E1161003F0ADB /* Const.swift in Sources */,
 				84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */,

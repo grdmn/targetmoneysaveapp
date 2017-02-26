@@ -11,6 +11,7 @@ import UIKit
 class StatusMoneyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var TextStatusLbl:UILabel!
+    @IBOutlet weak var DateTimeLbl:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,7 @@ class StatusMoneyTableViewCell: UITableViewCell {
     func setValue(moneyData: MoneyData){
         
         TextStatusLbl.text = moneyData.MoneyText
+        DateTimeLbl.text = moneyData.DateTimeText
         
     }
     
