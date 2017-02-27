@@ -201,11 +201,17 @@
 				TargetAttributes = {
 					84B8222C1E240B5C004D58F7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = CL2GSQ2D6S;
+						DevelopmentTeam = G3Z6Q26APU;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
@@ -444,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = targetmoneysaveapp/targetmoneysaveapp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CL2GSQ2D6S;
+				DEVELOPMENT_TEAM = G3Z6Q26APU;
 				INFOPLIST_FILE = targetmoneysaveapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grdmn.targetmoneysaveapp;
@@ -460,7 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = targetmoneysaveapp/targetmoneysaveapp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CL2GSQ2D6S;
+				DEVELOPMENT_TEAM = G3Z6Q26APU;
 				INFOPLIST_FILE = targetmoneysaveapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grdmn.targetmoneysaveapp;

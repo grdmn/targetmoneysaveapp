@@ -14,10 +14,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView:UITableView!
     
-//    var MoneyDataArray = [MoneyData]()
+    var MoneyDataArray = [MoneyData]()
+    
 //    var postDataDash = [MoneyData]()
     
-    var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
+//    var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
+    
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
     
@@ -48,7 +50,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         
 //      getUserEmail()
-//        databaseInit()
+        databaseInit()
+        databaseRelease()
     }
     
 //    func getUserEmail() {
@@ -80,39 +83,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    }
     
     func databaseInit(){
+        
         databaseRef = FIRDatabase.database().reference()
         
-        _databaseHandle = self.databaseRef.child("StatusMoney").observe(.childAdded, with: { (firebaseSnapshot) in
-            self.firDataSnapshotArray.append(firebaseSnapshot)
+        _databaseHandle = self.databaseRef.child("StatusMoney").observe(.value, with: {
+            (firebaseSnapshot) in
             
-            let indexPathOfLastRow = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
-            self.tableView.insertRows(at: [indexPathOfLastRow], with: .automatic)
+            self.MoneyDataArray = []
             
-            
+            if let snapshot = firebaseSnapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    if let snapValue = snap.value as? Dictionary<String, AnyObject>
+                    {
+                        let key = snap.key
+                        let moneyData = MoneyData(priKey: key, data: snapValue)
+                        self.MoneyDataArray.append(moneyData)
+                    }
+                    
+                }
+            }
+            self.tableView.reloadData()
         })
-        
-        
-        
-        
-        
-//        _databaseHandle = self.databaseRef.child(userEmail).observe(.value, with: { (firebaseSnapshot) in
-//            
-//            self.MoneyDataArray = []
-//            if let snapshot = firebaseSnapshot.children.allObjects as? [FIRDataSnapshot] {
-//                for snap in snapshot {
-//                    if let snapValue = snap.value as? Dictionary<String, AnyObject> {
-//                        let key = snap.key
-//                        let moneyData = MoneyData(prikey: key, data: snapValue)
-//                        
-//                        self.MoneyDataArray.append(moneyData)
-//                    }
-//                }
-//            }
-//            
-//            self.tableView.reloadData()
-//            
-//        })
-        
         
     }
     
@@ -144,60 +135,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return MoneyDataArray.count
-        return firDataSnapshotArray.count
+        return MoneyDataArray.count
+//        return firDataSnapshotArray.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let moneyData = MoneyDataArray[indexPath.row]
-//        
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//        }
-//        else{
-//            
-//            let cell = StatusMoneyTableViewCell()
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//            
-//        }
-//
-        let firDataSnapshot = self.firDataSnapshotArray[indexPath.row]
-        let snapShotValue = firDataSnapshot.value as! Dictionary<String, AnyObject>
-        var strText = ""
-        
-        if let tempstrText = snapShotValue[MoneyData.MONEYTEXT_ID] as! String! {
-            strText = tempstrText
-        }
-        
-        var strDateTime = ""
-        if let tempstrDateTime = snapShotValue[MoneyData.DATETIMETEXT_ID] as! String! {
-            strDateTime = tempstrDateTime
-        }
+    
+        let moneyData = MoneyDataArray[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
-            
-            if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText, datetimeText: strDateTime)
-                cell.setValue(moneyData: moneyData)
-            }
+            cell.setValue(moneyData: moneyData)
             
             return cell
         }
         else{
-            
+
             let cell = StatusMoneyTableViewCell()
-            if (strText != ""){
-                let moneyData = MoneyData(moneyText: strText, datetimeText: strDateTime)
-                cell.setValue(moneyData: moneyData)
-            }
+            cell.setValue(moneyData: moneyData)
             
             return cell
+            
         }
+
     }
+
 }

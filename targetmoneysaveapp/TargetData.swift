@@ -34,7 +34,7 @@ class TargetData {
     
     static let DATETIMETEXT_ID = "DateTime"
     
-    private var _datetimeText:String!
+    private var _datetimeText:String! = ""
     
     var DateTimeText:String{
         return _datetimeText

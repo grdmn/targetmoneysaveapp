@@ -16,7 +16,7 @@ class MoneyData{
     
     private var _moneyText:String!
     private var _datetimeText:String! = ""
-//    private var _priKey:String!
+    private var _priKey:String!
     
     var MoneyText:String{
         return _moneyText
@@ -31,15 +31,17 @@ class MoneyData{
         self._datetimeText = datetimeText
     }
     
-//    init(prikey:String, data:Dictionary<String, AnyObject>){
-//        self._priKey = prikey
-//        
-//        if let MoneyText = data[MoneyData.MONEYTEXT_ID] as? String {
-//            self._moneyText = MoneyText
-//        }
-//        
-//        if let DateTimeText = data[MoneyData.DATETIMETEXT_ID] as? String {
-//            self._datetimeText = DateTimeText
-//        }
-//    }
+    init(priKey:String, data:Dictionary<String, AnyObject>) {
+        self._priKey = priKey
+        
+        if let MoneyText = data[MoneyData.MONEYTEXT_ID] as? String
+        {
+            self._moneyText = MoneyText
+        }
+        if let DateTimeText = data[MoneyData.DATETIMETEXT_ID] as? String
+        {
+            self._datetimeText = DateTimeText
+        }
+    }
+
 }
