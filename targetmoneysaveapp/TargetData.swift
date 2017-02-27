@@ -12,6 +12,7 @@ class TargetData {
     
     static let NAMETARGET_ID = "NameTargetText"
     
+    
     private var _nameTargetText:String!
     
     var NameTargetText:String{
@@ -30,10 +31,6 @@ class TargetData {
         return _priceText
     }
     
-    init(priceText:String, datetimeText:String) {
-        self._priceText = priceText
-        self._datetimeText = datetimeText
-    }
     
     static let DATETIMETEXT_ID = "DateTime"
     
@@ -43,6 +40,29 @@ class TargetData {
         return _datetimeText
     }
     
+    
+    init(priceText:String, datetimeText:String) {
+        self._priceText = priceText
+        self._datetimeText = datetimeText
+    }
+    
+    private var _priKey:String!
+
+    init(prikey:String, data:Dictionary<String, AnyObject>){
+        self._priKey = prikey
+        
+        if let PriceText = data[TargetData.PRICETEXT_ID] as? String {
+            self._priceText = PriceText
+        }
+        
+        if let DateTimeText = data[TargetData.DATETIMETEXT_ID] as? String {
+            self._datetimeText = DateTimeText
+        }
+        
+        if let NameTargetText = data[TargetData.NAMETARGET_ID] as? String {
+            self._nameTargetText = NameTargetText
+        }
+    }
 
     
     

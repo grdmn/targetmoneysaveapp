@@ -14,11 +14,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView:UITableView!
     
-    //var MoneyDataArray = [MoneyData]()
+//    var MoneyDataArray = [MoneyData]()
+//    var postDataDash = [MoneyData]()
     
     var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
+    
+//    var userEmail:String! = ""
     
 
     override func viewDidLoad() {
@@ -38,25 +41,48 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationController?.present(loginVC, animated: true, completion: nil)
             
         }
-        
-//        var moneyData = MoneyData(moneyText: "Test1")
-//        MoneyDataArray.append(moneyData)
-//        moneyData = MoneyData(moneyText: "Test2")
-//        MoneyDataArray.append(moneyData)
 
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-        databaseInit()
+//      getUserEmail()
+//        databaseInit()
     }
+    
+//    func getUserEmail() {
+//        
+//        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
+//        
+//        if firAuthEmail != nil{
+//            userEmail = firAuthEmail
+//            userEmail = replaceSpacialCharacter(inputStr: userEmail)
+//            
+//            databaseRelease()
+//            databaseInit()
+//        
+//        }
+//        
+//    }
+    
+//    func replaceSpacialCharacter(inputStr: String) -> String  {
+//        var outputStr = inputStr
+//        
+//        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
+//        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
+//        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
+//        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
+//        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
+//        
+//        return outputStr
+//        
+//    }
     
     func databaseInit(){
         databaseRef = FIRDatabase.database().reference()
         
-        _databaseHandle = self.databaseRef.child("MoneyStatus").observe(.childAdded, with: { (firebaseSnapshot) in
+        _databaseHandle = self.databaseRef.child("StatusMoney").observe(.childAdded, with: { (firebaseSnapshot) in
             self.firDataSnapshotArray.append(firebaseSnapshot)
             
             let indexPathOfLastRow = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
@@ -64,11 +90,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
         })
+        
+        
+        
+        
+        
+//        _databaseHandle = self.databaseRef.child(userEmail).observe(.value, with: { (firebaseSnapshot) in
+//            
+//            self.MoneyDataArray = []
+//            if let snapshot = firebaseSnapshot.children.allObjects as? [FIRDataSnapshot] {
+//                for snap in snapshot {
+//                    if let snapValue = snap.value as? Dictionary<String, AnyObject> {
+//                        let key = snap.key
+//                        let moneyData = MoneyData(prikey: key, data: snapValue)
+//                        
+//                        self.MoneyDataArray.append(moneyData)
+//                    }
+//                }
+//            }
+//            
+//            self.tableView.reloadData()
+//            
+//        })
+        
+        
     }
     
     func databaseRelease(){
         if(_databaseHandle == nil) {
-            self.databaseRef.child("MoneyStatus").removeObserver(withHandle: _databaseHandle)
+            self.databaseRef.child("StatusMoney").removeObserver(withHandle: _databaseHandle)
             _databaseHandle = nil
         }
     }
@@ -116,7 +166,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            return cell
 //            
 //        }
-        
+//
         let firDataSnapshot = self.firDataSnapshotArray[indexPath.row]
         let snapShotValue = firDataSnapshot.value as! Dictionary<String, AnyObject>
         var strText = ""

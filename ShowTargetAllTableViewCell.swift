@@ -19,10 +19,11 @@ class ShowTargetAllTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func setValue(targetData: TargetData, priceData: TargetData){
+    func setValue(targetData: TargetData, priceData: TargetData, datetimeData: TargetData){
         
         allNameTarget.text = targetData.NameTargetText
         priceTarget.text = priceData.PriceText
+        DateTimeLbl.text = datetimeData.DateTimeText
         
     }
     

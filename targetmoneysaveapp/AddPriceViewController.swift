@@ -22,17 +22,7 @@ class AddPriceViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        
-//        logOut()
-//        
-//        if(FIRAuth.auth()?.currentUser == nil){
-//            
-//            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-//            
-//            self.navigationController?.present(loginVC, animated: true, completion: nil)
-//            
-//        }
-        
+
         
     }
     
@@ -55,18 +45,6 @@ class AddPriceViewController: UIViewController {
         })
     }
     
-    
-    
-//    func logOut() {
-//        do{
-//            try FIRAuth.auth()?.signOut()
-//        }
-//        catch let error as NSError{
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-    
     deinit {
         
     }
@@ -75,13 +53,13 @@ class AddPriceViewController: UIViewController {
         
         if((inputPriceTxt.text?.characters.count)! > 0) {
             let priceData = TargetData(priceText: inputPriceTxt.text!, datetimeText:Const().CurrentDateTimeToStr())
-            sendPrice(priceData: priceData)
+            sendPrice(priceData: priceData, datetimeData: priceData)
             inputPriceTxt.text = ""
         }
         
     }
     
-    func sendPrice(priceData: TargetData) {
+    func sendPrice(priceData: TargetData, datetimeData: TargetData) {
         
         //        var dataValue = [String: String]()
         //        dataValue[MoneyData.NAMETARGET_ID] = nameTargetData.nameTargetText
@@ -89,7 +67,7 @@ class AddPriceViewController: UIViewController {
         let dataValue: Dictionary<String, AnyObject> =
             [
                 TargetData.PRICETEXT_ID: priceData.PriceText as AnyObject,
-                TargetData.DATETIMETEXT_ID: priceData.DateTimeText as AnyObject
+               TargetData.DATETIMETEXT_ID: priceData.DateTimeText as AnyObject
         ]
         self.databaseRef.child("AddTarget").childByAutoId().setValue(dataValue)
         

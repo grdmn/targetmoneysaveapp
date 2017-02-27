@@ -21,7 +21,7 @@ class Const {
     func CurrentDateTimeToStr() -> String {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "EE dd-MM-yyyy HH:mm"
         return dateFormatter.string(from: currentDate)
     }
     

@@ -9,9 +9,10 @@
 import UIKit
 import Firebase
 
-class AddNameTargetViewController: UIViewController {
+class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var inputTargetTxt: UITextField!
+    @IBOutlet weak var MyImageView:UIImageView!
 
     var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
@@ -20,6 +21,8 @@ class AddNameTargetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        databaseRef = FIRDatabase.database().reference()
         
         // Do any additional setup after loading the view.
         
@@ -34,6 +37,64 @@ class AddNameTargetViewController: UIViewController {
 //        }
         
         
+    }
+    
+    @IBAction func PhotoAction(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+
+    
+    @IBAction func CameraAction(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    func uploadImageToFirebaseStorageData(data: NSData){
+        
+        let storageRef = FIRStorage.storage().reference(withPath: "myTargetPics/demoPic.jpg")
+        let uploadMetadata = FIRStorageMetadata()
+        uploadMetadata.contentType = "\(UUID().uuidString).jpeg"
+        storageRef.put(data as Data, metadata: uploadMetadata, completion: {(metadata, error)in
+            if(error != nil){
+                print("error")
+            }else{
+                let downLoadURL = metadata?.downloadURL()
+                self.navigationController?.popViewController(animated: true)
+                
+                
+            }
+            
+        })
+        
+    }
+
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let imageData = UIImageJPEGRepresentation(image, 0.8){
+            
+            uploadImageToFirebaseStorageData(data: imageData as NSData)
+            
+            MyImageView.image = image
+            MyImageView.contentMode = .scaleAspectFit
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     
@@ -78,6 +139,8 @@ class AddNameTargetViewController: UIViewController {
             
             sendTargetName(nameTargetData: nameTargetData)
             inputTargetTxt.text = ""
+            
+            databaseRef?.child("AddTarget/photoURL").setValue(MyImageView.image)
         }
         
     }

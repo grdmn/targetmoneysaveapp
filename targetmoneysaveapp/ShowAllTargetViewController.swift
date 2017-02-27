@@ -12,10 +12,13 @@ import Firebase
 class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+//    var TargetDataArray = [TargetData]()
+    
     var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
+    
     
     
     override func viewDidLoad() {
@@ -26,24 +29,16 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
-//        logOut()
-//        
-//        if(FIRAuth.auth()?.currentUser == nil){
-//            
-//            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-//            
-//            self.navigationController?.present(loginVC, animated: true, completion: nil)
-//            
-//        }
-        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
         databaseInit()
     }
+    
+    
+
     
     func databaseInit(){
         databaseRef = FIRDatabase.database().reference()
@@ -57,28 +52,16 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
             
             
         })
+        
+        
+
+        
     }
     
-    func databaseRelease(){
-        if(_databaseHandle == nil) {
-            self.databaseRef.child("AddTarget").removeObserver(withHandle: _databaseHandle)
-            _databaseHandle = nil
-        }
-    }
-    
-    
-//    func logOut() {
-//        do{
-//            try FIRAuth.auth()?.signOut()
-//        }
-//        catch let error as NSError{
-//            print(error.localizedDescription)
-//        }
-//    }
     
     
     deinit {
-        databaseRelease()
+        
     }
     
     
@@ -87,12 +70,32 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return MoneyDataArray.count
+//        return TargetDataArray.count
         return firDataSnapshotArray.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+//        
+//        let targetData = TargetDataArray[indexPath.row]
+//        
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTargetViewCell") as? ShowTargetAllTableViewCell {
+//            
+//            cell.setValue(targetData: targetData, priceData: targetData, datetimeData: targetData)
+//            
+//            return cell
+//        }
+//        else{
+//            
+//            let cell = ShowTargetAllTableViewCell()
+//            cell.setValue(targetData: targetData, priceData: targetData, datetimeData: targetData)
+//            
+//            return cell
+//            
+//            
+//        }
+
         
         
         let firDataSnapshot = self.firDataSnapshotArray[indexPath.row]
@@ -122,7 +125,7 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
                 let targetData = TargetData(nameTargetText: strText)
                 let targetDataprice = TargetData(priceText: strPrice, datetimeText: strDateTime)
                 
-                cell.setValue(targetData: targetData, priceData: targetDataprice)
+                cell.setValue(targetData: targetData, priceData: targetDataprice, datetimeData: targetDataprice)
 //                cell.setValue(priceData: targetDataprice)
             }
             
@@ -141,9 +144,8 @@ class ShowAllTargetViewController: UIViewController, UITableViewDelegate, UITabl
                 let targetData = TargetData(nameTargetText: strText)
                 let targetDataprice = TargetData(priceText: strPrice,datetimeText: strDateTime)
                 
-//                cell.setValue(targetData: targetData)
-//                cell.setValue(priceData: targetDataprice)
-                cell.setValue(targetData: targetData, priceData: targetDataprice)
+                cell.setValue(targetData: targetData, priceData: targetDataprice, datetimeData: targetDataprice)
+
             }
             return cell
         }
