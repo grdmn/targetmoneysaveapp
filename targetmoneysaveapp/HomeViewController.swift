@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -43,6 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationController?.present(loginVC, animated: true, completion: nil)
             
         }
+        
+        FIRMessaging.messaging().subscribe(toTopic: "/topic/news")
 
 
     }
