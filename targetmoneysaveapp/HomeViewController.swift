@@ -30,8 +30,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var _databaseHandle:FIRDatabaseHandle! = nil
     
 //    var userEmail:String! = ""
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,26 +50,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        FIRMessaging.messaging().subscribe(toTopic: "/topic/news")
-
+        FIRMessaging.messaging().subscribe(toTopic: "/topic/newsa")
+    
 
     }
-    
-    let NameUserRef = FIRDatabase.database().reference().child("users")
-    let moneyTargetLblRef = FIRDatabase.database().reference().child("AddTarget")
-    let moneyTotalLblRef = FIRDatabase.database().reference().child("StatusMoney").child("MoneyBalance")
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        var moneyTotal = moneyTotalLbl.text
-        var moneyTarget = moneyTargetLbl.text
+        databaseRef = FIRDatabase.database().reference()
         
-        
-        
+        databaseRef.child("StatusMoney").child("MoneyBalance").observe(.value, with: { (snapshot : FIRDataSnapshot) in
+            self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
+            
+        })
+
         
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         
