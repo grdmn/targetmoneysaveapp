@@ -15,6 +15,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView:UITableView!
     
+    @IBOutlet weak var moneyTotalLbl:UILabel!
+    @IBOutlet weak var moneyTargetLbl:UILabel!
+    @IBOutlet weak var userNameLbl:UILabel!
+    
+    
     var MoneyDataArray = [MoneyData]()
     
 //    var postDataDash = [MoneyData]()
@@ -49,6 +54,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 
     }
+    
+    let NameUserRef = FIRDatabase.database().reference().child("users")
+    let moneyTargetLblRef = FIRDatabase.database().reference().child("AddTarget")
+    let moneyTotalLblRef = FIRDatabase.database().reference().child("StatusMoney").child("MoneyBalance")
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var moneyTotal = moneyTotalLbl.text
+        var moneyTarget = moneyTargetLbl.text
+        
+        
+        
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
