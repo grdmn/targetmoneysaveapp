@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        let user = FIRAuth.auth()?.currentUser
 //        var newData = false
         databaseRef.child("AddTarget").child("PriceText").observe(.value, with: { (snapshot : FIRDataSnapshot) in
-            self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
+            self.moneyTargetLbl.text = (snapshot.value as AnyObject).description
             
         })
 
