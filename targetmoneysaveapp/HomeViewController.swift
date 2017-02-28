@@ -61,13 +61,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("StatusMoney").child("MoneyBalance").observe(.value, with: { (snapshot : FIRDataSnapshot) in
+            
             self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
+            
             
         })
         
 //        let user = FIRAuth.auth()?.currentUser
 //        var newData = false
         databaseRef.child("AddTarget").child("PriceText").observe(.value, with: { (snapshot : FIRDataSnapshot) in
+            
             self.moneyTargetLbl.text = (snapshot.value as AnyObject).description
             
         })
