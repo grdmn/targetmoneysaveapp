@@ -70,6 +70,7 @@ class AddPriceViewController: UIViewController {
                TargetData.DATETIMETEXT_ID: priceData.DateTimeText as AnyObject
         ]
         self.databaseRef.child("AddTarget").childByAutoId().setValue(dataValue)
+        //self.databaseRef.child("AddTarget").setValue(dataValue)
         
     }
     

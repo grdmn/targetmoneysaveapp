@@ -25,7 +25,7 @@ class TargetData {
     
     static let PRICETEXT_ID = "PriceText"
     
-    private var _priceText:String!
+    private var _priceText:String! = ""
     
     var PriceText:String{
         return _priceText
@@ -48,8 +48,8 @@ class TargetData {
     
     private var _priKey:String!
 
-    init(prikey:String, data:Dictionary<String, AnyObject>){
-        self._priKey = prikey
+    init(priKey:String, data:Dictionary<String, AnyObject>) {
+        self._priKey = priKey
         
         if let PriceText = data[TargetData.PRICETEXT_ID] as? String {
             self._priceText = PriceText

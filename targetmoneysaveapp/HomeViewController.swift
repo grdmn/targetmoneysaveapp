@@ -64,6 +64,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
             
         })
+        
+//        let user = FIRAuth.auth()?.currentUser
+//        var newData = false
+//        databaseRef.child("AddTarget/PriceText")
 
         
     }
