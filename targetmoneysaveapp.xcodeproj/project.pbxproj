@@ -11,6 +11,10 @@
 		844418B41E3A6A23000DF349 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B31E3A6A23000DF349 /* SignupViewController.swift */; };
 		844418B61E3A6AE7000DF349 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B51E3A6AE7000DF349 /* SigninViewController.swift */; };
 		844418B81E3A7D15000DF349 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B71E3A7D15000DF349 /* ProfileViewController.swift */; };
+		8460E0391E67499400F651BA /* CreatePasswordLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E0381E67499400F651BA /* CreatePasswordLockViewController.swift */; };
+		8460E03B1E67519300F651BA /* WaitingtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */; };
+		8460E03D1E6751E000F651BA /* UnlockPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */; };
+		8460E03F1E67520300F651BA /* PasswordtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */; };
 		84690E061E6130840038C490 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E051E6130840038C490 /* ProfileUserViewController.swift */; };
 		84690E081E613E120038C490 /* StatusMoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */; };
 		84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E091E61437D0038C490 /* MoneyData.swift */; };
@@ -49,6 +53,10 @@
 		844418B51E3A6AE7000DF349 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		844418B71E3A7D15000DF349 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		845FE9391E34A09F00674826 /* targetmoneysaveapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = targetmoneysaveapp.entitlements; sourceTree = "<group>"; };
+		8460E0381E67499400F651BA /* CreatePasswordLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordLockViewController.swift; sourceTree = "<group>"; };
+		8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingtoUnlockViewController.swift; sourceTree = "<group>"; };
+		8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockPageViewController.swift; sourceTree = "<group>"; };
+		8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordtoUnlockViewController.swift; sourceTree = "<group>"; };
 		84690E051E6130840038C490 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
 		84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMoneyTableViewCell.swift; sourceTree = "<group>"; };
 		84690E091E61437D0038C490 /* MoneyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyData.swift; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 				84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */,
 				84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */,
 				84C71A931E62F3CE00B715FD /* ShowTargetAcceptViewController.swift */,
+				8460E0381E67499400F651BA /* CreatePasswordLockViewController.swift */,
+				8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */,
+				8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */,
+				8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */,
 			);
 			path = targetmoneysaveapp;
 			sourceTree = "<group>";
@@ -309,10 +321,13 @@
 				84F2D0DA1E3BEDA300AC023D /* ShowTargetViewController.swift in Sources */,
 				84B822491E24227A004D58F7 /* TargetPageViewController.swift in Sources */,
 				844418B41E3A6A23000DF349 /* SignupViewController.swift in Sources */,
+				8460E03F1E67520300F651BA /* PasswordtoUnlockViewController.swift in Sources */,
 				84B822471E241E2B004D58F7 /* ComposeViewController.swift in Sources */,
+				8460E03D1E6751E000F651BA /* UnlockPageViewController.swift in Sources */,
 				84F23EC71E61A07300C6B4EA /* AddPriceViewController.swift in Sources */,
 				84DA422D1E2C682F0001DF7D /* DashboardViewController.swift in Sources */,
 				844418B61E3A6AE7000DF349 /* SigninViewController.swift in Sources */,
+				8460E03B1E67519300F651BA /* WaitingtoUnlockViewController.swift in Sources */,
 				84B822331E240B5C004D58F7 /* ViewController.swift in Sources */,
 				8481A7A51E5E140C003F0ADB /* MessageData.swift in Sources */,
 				8441B4581E4F0D220072C8C5 /* testNotificationViewController.swift in Sources */,
@@ -327,6 +342,7 @@
 				84E476481E608D5D00B9C289 /* ForgotPasswordViewController.swift in Sources */,
 				84C71A941E62F3CE00B715FD /* ShowTargetAcceptViewController.swift in Sources */,
 				84F23EC91E61BD6600C6B4EA /* TargetData.swift in Sources */,
+				8460E0391E67499400F651BA /* CreatePasswordLockViewController.swift in Sources */,
 				84B822311E240B5C004D58F7 /* AppDelegate.swift in Sources */,
 				8481A7A31E5E1161003F0ADB /* Const.swift in Sources */,
 				84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */,

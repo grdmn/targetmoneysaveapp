@@ -52,11 +52,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 
             })
-            
-            
-
-            
-            
+              
             
         }
         

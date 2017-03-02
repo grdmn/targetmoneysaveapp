@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var moneyTotalLbl:UILabel!
     @IBOutlet weak var moneyTargetLbl:UILabel!
     @IBOutlet weak var userNameLbl:UILabel!
+
     
     
     var MoneyDataArray = [MoneyData]()
@@ -29,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
     
-//    var userEmail:String! = ""
+    var userEmail:String! = ""
 
     
     override func viewDidLoad() {
@@ -50,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        FIRMessaging.messaging().subscribe(toTopic: "/topic/newsa")
+        //FIRMessaging.messaging().subscribe(toTopic: "/topic/newsa")
     
 
     }
@@ -58,27 +59,60 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+//        let user = FIRAuth.auth()?.currentUser
+//        var newData = false
+        
         databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("StatusMoney").child("MoneyBalance").observe(.value, with: { (snapshot : FIRDataSnapshot) in
             
+            
             self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
             
+            //self.CalculateTotal()
             
         })
         
-//        let user = FIRAuth.auth()?.currentUser
-//        var newData = false
         databaseRef.child("AddTarget").child("PriceText").observe(.value, with: { (snapshot : FIRDataSnapshot) in
-            
+        
+
             self.moneyTargetLbl.text = (snapshot.value as AnyObject).description
             
+            print(self.moneyTotalLbl.text as AnyObject)
+            
+            //self.CalculateTotal()
+
         })
-
-
         
     }
 
+    
+    func CalculateTotal () {
+        
+                let intMoneytotal = Int(moneyTotalLbl.text!)
+                let intMoneyTarget = Int(moneyTargetLbl.text!)
+        
+                var result:Int = 0
+                var startrun:Int = 0
+        
+                startrun = 1
+        
+        
+                while intMoneytotal! <= intMoneyTarget! {
+                    result = intMoneytotal! - intMoneyTarget!
+                    print(result)
+                    self.unlockPage()
+                    startrun -= 1
+                }
+    }
+    
+    
+    func unlockPage() {
+        let unlockPage = self.storyboard?.instantiateViewController(withIdentifier: "UnlockPageViewController")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = unlockPage
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -87,33 +121,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         databaseRelease()
     }
     
-//    func getUserEmail() {
-//        
-//        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
-//        
-//        if firAuthEmail != nil{
-//            userEmail = firAuthEmail
-//            userEmail = replaceSpacialCharacter(inputStr: userEmail)
-//            
-//            databaseRelease()
-//            databaseInit()
-//        
-//        }
-//        
-//    }
+    func getUserEmail() {
+        
+        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
+        
+        if firAuthEmail != nil{
+            userEmail = firAuthEmail
+            userEmail = replaceSpacialCharacter(inputStr: userEmail)
+            
+            databaseRelease()
+            databaseInit()
+        
+        }
+        
+    }
     
-//    func replaceSpacialCharacter(inputStr: String) -> String  {
-//        var outputStr = inputStr
-//        
-//        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
-//        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
-//        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
-//        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
-//        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
-//        
-//        return outputStr
-//        
-//    }
+    func replaceSpacialCharacter(inputStr: String) -> String  {
+        var outputStr = inputStr
+        
+        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
+        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
+        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
+        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
+        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
+        
+        return outputStr
+        
+    }
     
     func databaseInit(){
         
