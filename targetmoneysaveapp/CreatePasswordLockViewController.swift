@@ -92,10 +92,10 @@ class CreatePasswordLockViewController: UIViewController {
 
     }
     
-    func gotoDashboard() {
-        let dashboardNav = self.storyboard?.instantiateViewController(withIdentifier: "WaitingtoUnlockViewController")
+    func gotoHome() {
+        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = dashboardNav
+        appDelegate.window?.rootViewController = HomeNav
     }
 
 

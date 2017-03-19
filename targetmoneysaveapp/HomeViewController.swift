@@ -20,12 +20,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var userNameLbl:UILabel!
 
     
-    
     var MoneyDataArray = [MoneyData]()
-    
-//    var postDataDash = [MoneyData]()
-    
-//    var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
@@ -66,45 +61,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         databaseRef.child("StatusMoney").child("MoneyBalance").observe(.value, with: { (snapshot : FIRDataSnapshot) in
             
-            
             self.moneyTotalLbl.text = (snapshot.value as AnyObject).description
-            
-            //self.CalculateTotal()
+        
             
         })
         
+       
+        
         databaseRef.child("AddTarget").child("PriceText").observe(.value, with: { (snapshot : FIRDataSnapshot) in
         
-
             self.moneyTargetLbl.text = (snapshot.value as AnyObject).description
+    
+//            self.CalculateTotal()
             
-            print(self.moneyTotalLbl.text as AnyObject)
-            
-            //self.CalculateTotal()
-
         })
         
     }
 
     
-    func CalculateTotal () {
-        
-                let intMoneytotal = Int(moneyTotalLbl.text!)
-                let intMoneyTarget = Int(moneyTargetLbl.text!)
-        
-                var result:Int = 0
-                var startrun:Int = 0
-        
-                startrun = 1
-        
-        
-                while intMoneytotal! <= intMoneyTarget! {
-                    result = intMoneytotal! - intMoneyTarget!
-                    print(result)
-                    self.unlockPage()
-                    startrun -= 1
-                }
-    }
+//    
+//    func CalculateTotal () {
+//
+//            let intMoneytotal = Int(self.moneyTotalLbl.text!)
+//            let intMoneyTarget = Int(self.moneyTargetLbl.text!)
+//            
+//            if intMoneytotal! == intMoneyTarget! {
+//                self.unlockPage()
+//            }
+//    
+//    }
     
     
     func unlockPage() {
@@ -119,6 +104,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //      getUserEmail()
         databaseInit()
         databaseRelease()
+        //CalculateTotal()
+
+
+        
+        
     }
     
     func getUserEmail() {

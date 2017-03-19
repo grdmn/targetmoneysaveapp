@@ -26,23 +26,7 @@ class Const {
     }
     
 //    func CalculateTotal () -> String {
-//        
-////        let intMoneytotal = Int(self.moneyTotalLbl.text!)
-////        let intMoneyTarget = Int(self.moneyTargetLbl.text!)
-////        
-////            var result:Int = 0
-////            var startrun:Int = 0
-////        
-////            startrun = 1
-////        
-////        while intMoneytotal! <= intMoneyTarget! {
-////            result = intMoneytotal! - intMoneyTarget!
-////            print(self.moneyTotalLbl.text!)
-////            startrun += 1
-////            }
-//        
-//
-//    }
+
     
     
     

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "targetmoneysaveapp/HomeViewController.swift"
-            timestampString = "510191622.690043"
+            timestampString = "510310414.56119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "CalculateTotal()"
             landmarkType = "7">
          </BreakpointContent>
