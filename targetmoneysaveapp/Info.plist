@@ -28,14 +28,14 @@
 	<string>To take photo.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To show your photo.</string>
-	<key>UIBackgroundModes</key>
-	<array/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SukhumvitSet.ttc</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -18,11 +18,30 @@ class CreatePasswordLockViewController: UIViewController {
     
     var userEmail:String! = ""
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        let ref = FIRDatabase.database().reference()
+//        ref.child("testUser").observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            if snapshot.hasChild("passwordlock"){
+//                
+//                print("true rooms exist")
+//                    self.gotoCannotUnlockPage()
+//                
+//                
+//            }else{
+//                
+//                print("false room doesn't exist")
+//            }
+//            
+//            
+//        })
+        
     }
     
     
@@ -78,6 +97,7 @@ class CreatePasswordLockViewController: UIViewController {
         }
 
     }
+    
 
     func replaceSpacialCharacter(inputStr: String) -> String  {
         var outputStr = inputStr
@@ -92,11 +112,11 @@ class CreatePasswordLockViewController: UIViewController {
 
     }
     
-    func gotoHome() {
-        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = HomeNav
-    }
+//    func gotoCannotUnlockPage() {
+//        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CannotUnlockViewController")
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = CannotUnlockNav
+//    }
 
 
 

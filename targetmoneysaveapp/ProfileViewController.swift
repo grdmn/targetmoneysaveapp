@@ -26,7 +26,21 @@ class ProfileViewController: UIViewController {
         let manageProfileBarButton = UIBarButtonItem(title: "Manage", style: .plain, target: self, action: #selector(manageProfile))
         self.navigationItem.leftBarButtonItem = logoutBarButton
         self.navigationItem.rightBarButtonItem = manageProfileBarButton
-        
+//        
+//        if let user = FIRAuth.auth()?.currentUser{
+//            setUserDataToView(withFIRUser: user)
+//            
+//            if user.isEmailVerified {
+//                AppDelegate.showAlertMsg(withViewController:self, message: "Your Account is not verified, Please Select '+' to verified it!!!")
+//            } else {
+//                let alert = UIAlertController(title: "Message", message: "No user is signed in", preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+//                    self.logout()
+//                })
+//                alert.addAction(okAction)
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
         
 
     }
@@ -164,10 +178,12 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+//    func setUserDataToView(withFIRUser user: FIRUser) {
+//        
+//        emailValueLabel.text = user.email
+//        nameValueLabel.text = user.displayName
+//    }
 
-    
-
-    
-    
 
 }

@@ -15,6 +15,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField:UITextField!
     
     
+    var authListener: FIRAuthStateDidChangeListenerHandle?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +27,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if let _ = user {
+                self.gotoHome()
+            }
+        })
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
     }
     
     func dismissKeyboard() {
@@ -82,6 +101,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func gotoHome() {
+        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = HomeNav
+    }
+
     
     
     /*
