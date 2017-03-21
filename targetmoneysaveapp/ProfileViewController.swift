@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         let logoutBarButton = UIBarButtonItem(title: "ออก", style: .plain, target: self, action: #selector(logout))
-        let manageProfileBarButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(manageProfile))
+        let manageProfileBarButton = UIBarButtonItem(title: "แก้ไข", style: .plain, target: self, action: #selector(manageProfile))
         self.navigationItem.leftBarButtonItem = logoutBarButton
         self.navigationItem.rightBarButtonItem = manageProfileBarButton
 //        
