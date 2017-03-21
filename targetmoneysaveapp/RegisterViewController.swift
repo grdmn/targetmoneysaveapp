@@ -115,7 +115,7 @@ class RegisterViewController: UIViewController {
     }
 
     func gotoHome() {
-        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
+        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeUITabBarController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = HomeNav
     }

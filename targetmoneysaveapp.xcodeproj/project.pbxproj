@@ -14,7 +14,6 @@
 		8460E03B1E67519300F651BA /* WaitingtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */; };
 		8460E03D1E6751E000F651BA /* UnlockPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */; };
 		8460E03F1E67520300F651BA /* PasswordtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */; };
-		84690E061E6130840038C490 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E051E6130840038C490 /* ProfileUserViewController.swift */; };
 		84690E081E613E120038C490 /* StatusMoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */; };
 		84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E091E61437D0038C490 /* MoneyData.swift */; };
 		84690E0C1E6161290038C490 /* AddNameTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */; };
@@ -37,6 +36,7 @@
 		84E476481E608D5D00B9C289 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */; };
 		84E4764A1E60950E00B9C289 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E476491E60950E00B9C289 /* HomeViewController.swift */; };
 		84E4764E1E609B3200B9C289 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4764D1E609B3200B9C289 /* LoginViewController.swift */; };
+		84E74D5D1E80DBC200F6250F /* HomeUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E74D5C1E80DBC200F6250F /* HomeUITabBarController.swift */; };
 		84E972951E7FFC3D0031F157 /* CannotUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E972941E7FFC3D0031F157 /* CannotUnlockViewController.swift */; };
 		84E972991E80057B0031F157 /* NavHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E972981E80057B0031F157 /* NavHomeViewController.swift */; };
 		84F23EC71E61A07300C6B4EA /* AddPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */; };
@@ -57,7 +57,6 @@
 		8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingtoUnlockViewController.swift; sourceTree = "<group>"; };
 		8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockPageViewController.swift; sourceTree = "<group>"; };
 		8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordtoUnlockViewController.swift; sourceTree = "<group>"; };
-		84690E051E6130840038C490 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
 		84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMoneyTableViewCell.swift; sourceTree = "<group>"; };
 		84690E091E61437D0038C490 /* MoneyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyData.swift; sourceTree = "<group>"; };
 		84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNameTargetViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = ../ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		84E476491E60950E00B9C289 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84E4764D1E609B3200B9C289 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84E74D5C1E80DBC200F6250F /* HomeUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeUITabBarController.swift; sourceTree = "<group>"; };
 		84E972941E7FFC3D0031F157 /* CannotUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CannotUnlockViewController.swift; sourceTree = "<group>"; };
 		84E972981E80057B0031F157 /* NavHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavHomeViewController.swift; sourceTree = "<group>"; };
 		84F23EC61E61A07300C6B4EA /* AddPriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPriceViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 				84DA422C1E2C682F0001DF7D /* DashboardViewController.swift */,
 				844418B31E3A6A23000DF349 /* SignupViewController.swift */,
 				844418B51E3A6AE7000DF349 /* SigninViewController.swift */,
-				844418B71E3A7D15000DF349 /* ProfileViewController.swift */,
 				84F2D0D91E3BEDA300AC023D /* ShowTargetViewController.swift */,
 				8481A7A41E5E140C003F0ADB /* MessageData.swift */,
 				84B822341E240B5C004D58F7 /* Main.storyboard */,
@@ -148,11 +147,11 @@
 				84B822391E240B5C004D58F7 /* LaunchScreen.storyboard */,
 				84B8223C1E240B5C004D58F7 /* Info.plist */,
 				84B822421E240C54004D58F7 /* GoogleService-Info.plist */,
-				84690E051E6130840038C490 /* ProfileUserViewController.swift */,
 				8481A7A21E5E1161003F0ADB /* Const.swift */,
 				84E476451E6084E800B9C289 /* RegisterViewController.swift */,
-				84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */,
 				84E4764D1E609B3200B9C289 /* LoginViewController.swift */,
+				84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */,
+				844418B71E3A7D15000DF349 /* ProfileViewController.swift */,
 				84E476491E60950E00B9C289 /* HomeViewController.swift */,
 				84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */,
 				84690E091E61437D0038C490 /* MoneyData.swift */,
@@ -168,6 +167,7 @@
 				8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */,
 				84E972941E7FFC3D0031F157 /* CannotUnlockViewController.swift */,
 				84E972981E80057B0031F157 /* NavHomeViewController.swift */,
+				84E74D5C1E80DBC200F6250F /* HomeUITabBarController.swift */,
 			);
 			path = targetmoneysaveapp;
 			sourceTree = "<group>";
@@ -346,7 +346,6 @@
 				84690E081E613E120038C490 /* StatusMoneyTableViewCell.swift in Sources */,
 				844418B81E3A7D15000DF349 /* ProfileViewController.swift in Sources */,
 				84690E0C1E6161290038C490 /* AddNameTargetViewController.swift in Sources */,
-				84690E061E6130840038C490 /* ProfileUserViewController.swift in Sources */,
 				84E4764A1E60950E00B9C289 /* HomeViewController.swift in Sources */,
 				84E4764E1E609B3200B9C289 /* LoginViewController.swift in Sources */,
 				84690E0E1E6179FF0038C490 /* ShowAllTargetViewController.swift in Sources */,
@@ -357,6 +356,7 @@
 				8460E0391E67499400F651BA /* CreatePasswordLockViewController.swift in Sources */,
 				84B822311E240B5C004D58F7 /* AppDelegate.swift in Sources */,
 				8481A7A31E5E1161003F0ADB /* Const.swift in Sources */,
+				84E74D5D1E80DBC200F6250F /* HomeUITabBarController.swift in Sources */,
 				84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

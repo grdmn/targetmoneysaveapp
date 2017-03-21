@@ -22,8 +22,8 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let logoutBarButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
-        let manageProfileBarButton = UIBarButtonItem(title: "Manage", style: .plain, target: self, action: #selector(manageProfile))
+        let logoutBarButton = UIBarButtonItem(title: "ออก", style: .plain, target: self, action: #selector(logout))
+        let manageProfileBarButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(manageProfile))
         self.navigationItem.leftBarButtonItem = logoutBarButton
         self.navigationItem.rightBarButtonItem = manageProfileBarButton
 //        
@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Method
     
     func logout() {
-        let loginNav = self.storyboard?.instantiateViewController(withIdentifier: "NavLoginViewController")
+        let loginNav = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginNav
         
