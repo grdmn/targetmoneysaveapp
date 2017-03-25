@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         
         FIRApp.configure()
+        //FIRDatabase.database().persistenceEnabled = true
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.getFIRToken(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
@@ -93,6 +95,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+    
+    
         
     
 

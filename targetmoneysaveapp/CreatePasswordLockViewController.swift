@@ -25,22 +25,7 @@ class CreatePasswordLockViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        let ref = FIRDatabase.database().reference()
-//        ref.child("testUser").observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            if snapshot.hasChild("passwordlock"){
-//                
-//                print("true rooms exist")
-//                    self.gotoCannotUnlockPage()
-//                
-//                
-//            }else{
-//                
-//                print("false room doesn't exist")
-//            }
-//            
-//            
-//        })
+
         
     }
     
@@ -78,39 +63,39 @@ class CreatePasswordLockViewController: UIViewController {
 }
 
 
-    override func viewWillAppear(_ animated: Bool) {
-    
-          getUserEmail()
+//    override func viewWillAppear(_ animated: Bool) {
+//    
+//          getUserEmail()
+//
+//    }
 
-    }
 
 
-
-    func getUserEmail() {
-
-        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
-
-        if firAuthEmail != nil{
-            userEmail = firAuthEmail
-            userEmail = replaceSpacialCharacter(inputStr: userEmail)
-
-        }
-
-    }
-    
-
-    func replaceSpacialCharacter(inputStr: String) -> String  {
-        var outputStr = inputStr
-
-        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
-        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
-        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
-        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
-        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
-
-        return outputStr
-
-    }
+//    func getUserEmail() {
+//
+//        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
+//
+//        if firAuthEmail != nil{
+//            userEmail = firAuthEmail
+//            userEmail = replaceSpacialCharacter(inputStr: userEmail)
+//
+//        }
+//
+//    }
+//    
+//
+//    func replaceSpacialCharacter(inputStr: String) -> String  {
+//        var outputStr = inputStr
+//
+//        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
+//        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
+//        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
+//        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
+//        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
+//
+//        return outputStr
+//
+//    }
     
 //    func gotoCannotUnlockPage() {
 //        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CannotUnlockViewController")

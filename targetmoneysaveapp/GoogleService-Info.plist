@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>142460043401-vv9gvcvmm3dlp8dh9nmickmg6l25hijo.apps.googleusercontent.com</string>
+	<string>142460043401-1lld1a9epg6c5pigj9m5n16uf90rq84f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.142460043401-vv9gvcvmm3dlp8dh9nmickmg6l25hijo</string>
+	<string>com.googleusercontent.apps.142460043401-1lld1a9epg6c5pigj9m5n16uf90rq84f</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB_SHF8aly9snXR8mgcADZvBzEjffg8aRA</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>grdmn.targetmoneysaveapp</string>
+	<string>th.ac.su.ict.web.TargetMoneySaveApp</string>
 	<key>PROJECT_ID</key>
 	<string>targetmoneysaveapp</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:142460043401:ios:1c5779678111de15</string>
+	<string>1:142460043401:ios:127374fd0d1e5c85</string>
 	<key>DATABASE_URL</key>
 	<string>https://targetmoneysaveapp.firebaseio.com</string>
 </dict>

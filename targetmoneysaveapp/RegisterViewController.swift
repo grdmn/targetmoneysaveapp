@@ -28,52 +28,8 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerClicked(_ sender: Any) {
         
-//        if (emailTextField.text!.characters.count<6) {
-//            Const().showAlert(title: "Error", message: "Email more than 6 character", viewController: self)
-//            return
-//        }
-//        else{
-//            emailTextField.backgroundColor = UIColor.white
-//        }
-//        
-//        if (passwordTextField.text!.characters.count<6) {
-//            Const().showAlert(title: "Error", message: "Email more than 6 character", viewController: self)
-//            return
-//        }
-//        else{
-//            passwordTextField.backgroundColor = UIColor.white
-//        }
-//        
-//        let email = emailTextField.text
-//        let password = passwordTextField.text
-//        FIRAuth.auth()?.signIn(withEmail: email!, password: password!, completion: { (firebaseUser, firebaseError) in
-//            if let error = firebaseError{
-//                
-//                Const().showAlert(title: "Error", message: error.localizedDescription, viewController: self)
-//                return
-//            }else{
-//                
-//                Const().showAlert(title: "Signin Success", message: "OK", viewController: self)
-//                return
-//            }
-//            
-//        })
-//
-//        if !confirmPasswordTextField.text!.isEqual(passwordTextField.text!) {
-//            
-//            confirmPasswordTextField.backgroundColor = UIColor.red
-//            
-//            Const().showAlert(title: "Error", message: "Password no match!", viewController: self)
-//            return
-//        }else{
-//            confirmPasswordTextField.backgroundColor = UIColor.white
-//            
-//            let email = emailTextField.text!
-//            let password = passwordTextField.text!
-//            return
-//        }
             
-            
+        
         FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
@@ -95,13 +51,10 @@ class RegisterViewController: UIViewController {
                 
                 print("save user successful into firebase db")
                 
-                
             })
-            
             
         }
 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,7 +66,29 @@ class RegisterViewController: UIViewController {
             }
         })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+    }
 
+    func dismissKeyboard() {
+        //view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    
+    
     func gotoHome() {
         let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeUITabBarController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
