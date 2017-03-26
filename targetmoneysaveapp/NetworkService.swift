@@ -43,6 +43,13 @@ struct NetworkService {
             if error==nil {
                 if let user = user {
                     print("sign in successful")
+                    
+                    let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+                    let usersReference = ref.child("MoneyCoin").child((FIRAuth.auth()?.currentUser?.uid)!)
+                    
+                    let addPriceData = ["Email": FIRAuth.auth()?.currentUser?.email as Any]
+                    usersReference.setValue(addPriceData)
+                    
                 }
             }else {
                 print(error!.localizedDescription)
@@ -71,12 +78,12 @@ struct NetworkService {
                     if error == nil{
                         self.saveInfo(user: user,username:username, password: password)
                     }else {
-                        print(error?.localizedDescription)
+                        print(error?.localizedDescription as Any)
                     }
                     
                 })
             }else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             }
         
         }
@@ -86,8 +93,15 @@ struct NetworkService {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 self.setUserInfo(user: user, username: username, password: password, data: data)
+                
+                let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+                let usersReference = ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!)
+                
+                let addPriceData = ["Price": FIRAuth.auth()?.currentUser?.email as Any]
+                usersReference.setValue(addPriceData)
+                
             }else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             }
         })
     }

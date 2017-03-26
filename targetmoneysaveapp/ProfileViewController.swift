@@ -50,6 +50,11 @@ class ProfileViewController: UIViewController {
         usernameValueLabel.text = user.displayName
     }
     
+    
+    @IBAction func UserLogout(_ sender: Any) {
+        logout()
+    }
+    
     func logout() {
         
         try! FIRAuth.auth()!.signOut()

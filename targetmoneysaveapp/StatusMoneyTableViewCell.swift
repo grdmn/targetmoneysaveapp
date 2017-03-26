@@ -18,13 +18,6 @@ class StatusMoneyTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func setValue(moneyData: MoneyData){
-        
-        TextStatusLbl.text = moneyData.MoneyText
-        DateTimeLbl.text = moneyData.DateTimeText
-        
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

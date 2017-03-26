@@ -18,7 +18,6 @@
 		8460E03D1E6751E000F651BA /* UnlockPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */; };
 		8460E03F1E67520300F651BA /* PasswordtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */; };
 		84690E081E613E120038C490 /* StatusMoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */; };
-		84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E091E61437D0038C490 /* MoneyData.swift */; };
 		84690E0C1E6161290038C490 /* AddNameTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */; };
 		84690E0E1E6179FF0038C490 /* ShowAllTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */; };
 		84690E101E617C200038C490 /* ShowTargetAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */; };
@@ -64,7 +63,6 @@
 		8460E03C1E6751E000F651BA /* UnlockPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockPageViewController.swift; sourceTree = "<group>"; };
 		8460E03E1E67520300F651BA /* PasswordtoUnlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordtoUnlockViewController.swift; sourceTree = "<group>"; };
 		84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMoneyTableViewCell.swift; sourceTree = "<group>"; };
-		84690E091E61437D0038C490 /* MoneyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyData.swift; sourceTree = "<group>"; };
 		84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNameTargetViewController.swift; sourceTree = "<group>"; };
 		84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAllTargetViewController.swift; sourceTree = "<group>"; };
 		84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowTargetAllTableViewCell.swift; path = ../ShowTargetAllTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				844418B71E3A7D15000DF349 /* ProfileViewController.swift */,
 				84E476491E60950E00B9C289 /* HomeViewController.swift */,
 				84690E071E613E120038C490 /* StatusMoneyTableViewCell.swift */,
-				84690E091E61437D0038C490 /* MoneyData.swift */,
 				84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */,
 				84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */,
 				84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */,
@@ -369,7 +366,6 @@
 				8481A7A31E5E1161003F0ADB /* Const.swift in Sources */,
 				84230F311E86053900C82000 /* NetworkService.swift in Sources */,
 				84E74D5D1E80DBC200F6250F /* HomeUITabBarController.swift in Sources */,
-				84690E0A1E61437D0038C490 /* MoneyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

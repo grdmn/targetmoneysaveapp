@@ -928,6 +928,27 @@
                                 <color key="textColor" red="1" green="0.0012503010419999999" blue="0.52309004189999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qo-ks-Oiu">
+                                <rect key="frame" x="50" y="523" width="275" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0012503010419999999" blue="0.52309004189999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vof-gp-ciK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="17"/>
+                                <state key="normal" title="สมัครสมาชิก">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="UserLogout:" destination="zxh-S1-nlN" eventType="touchUpInside" id="uLI-U8-De5"/>
+                                    <action selector="loginClicked:" destination="kYf-4x-SD4" eventType="touchUpInside" id="zGp-fa-OAL"/>
+                                    <action selector="signUpActionWithSender:" destination="kpq-sm-zVS" eventType="touchUpInside" id="b15-9o-6DG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17391198869999999" green="0.67896193270000005" blue="0.89561194180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -935,8 +956,10 @@
                             <constraint firstItem="Aza-I2-hrs" firstAttribute="leading" secondItem="3aI-JK-uh2" secondAttribute="leadingMargin" constant="86" id="8fy-S3-sYa"/>
                             <constraint firstItem="FdH-Ux-4BF" firstAttribute="top" secondItem="E64-Wp-eYL" secondAttribute="bottom" constant="99" id="BMg-8E-ddj"/>
                             <constraint firstItem="jrz-BO-Kir" firstAttribute="top" secondItem="jm4-6i-inv" secondAttribute="bottom" constant="27" id="BzD-Tc-0AS"/>
+                            <constraint firstItem="4Qo-ks-Oiu" firstAttribute="centerX" secondItem="dGO-fZ-xhP" secondAttribute="centerX" id="E4Z-Z3-rVF"/>
                             <constraint firstItem="jm4-6i-inv" firstAttribute="top" secondItem="6oM-IO-zkh" secondAttribute="bottom" constant="-27" id="Ekq-FA-azm"/>
                             <constraint firstItem="cTF-gh-S9K" firstAttribute="leading" secondItem="3aI-JK-uh2" secondAttribute="leadingMargin" id="G6G-mv-NwU"/>
+                            <constraint firstItem="2KP-dJ-VaS" firstAttribute="top" secondItem="4Qo-ks-Oiu" secondAttribute="bottom" constant="55" id="GV8-kr-jF5"/>
                             <constraint firstItem="jm4-6i-inv" firstAttribute="top" secondItem="dGO-fZ-xhP" secondAttribute="bottom" constant="35" id="IQg-ze-JwG"/>
                             <constraint firstItem="FdH-Ux-4BF" firstAttribute="centerX" secondItem="cTF-gh-S9K" secondAttribute="centerX" id="Ihu-bi-dm3"/>
                             <constraint firstItem="jm4-6i-inv" firstAttribute="leading" secondItem="3aI-JK-uh2" secondAttribute="leadingMargin" constant="86" id="JMq-Zc-QVD"/>
@@ -945,6 +968,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jrz-BO-Kir" secondAttribute="trailing" constant="27" id="Uj7-Cb-YtF"/>
                             <constraint firstItem="jm4-6i-inv" firstAttribute="trailing" secondItem="3aI-JK-uh2" secondAttribute="trailingMargin" constant="-27" id="VLj-PV-gY9"/>
                             <constraint firstItem="jrz-BO-Kir" firstAttribute="leading" secondItem="3aI-JK-uh2" secondAttribute="leadingMargin" constant="86" id="Vbc-O0-fvW"/>
+                            <constraint firstItem="4Qo-ks-Oiu" firstAttribute="leading" secondItem="3aI-JK-uh2" secondAttribute="leadingMargin" constant="34" id="Vqm-hV-xH9"/>
                             <constraint firstItem="dGO-fZ-xhP" firstAttribute="top" secondItem="FdH-Ux-4BF" secondAttribute="bottom" constant="21" id="X19-Qo-5ex"/>
                             <constraint firstItem="dGO-fZ-xhP" firstAttribute="trailing" secondItem="jm4-6i-inv" secondAttribute="trailing" id="ajM-GM-Mwm"/>
                             <constraint firstItem="6oM-IO-zkh" firstAttribute="top" secondItem="E64-Wp-eYL" secondAttribute="bottom" constant="303" id="e5i-Uf-kQe"/>
@@ -1721,7 +1745,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="เงิน" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ST-OO-bDf">
-                                                    <rect key="frame" x="183" y="51" width="62.5" height="25"/>
+                                                    <rect key="frame" x="183" y="51" width="61.5" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="hbB-Rf-yY0"/>
                                                     </constraints>
@@ -1762,7 +1786,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บาท" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvx-St-FrI">
-                                                    <rect key="frame" x="248.5" y="54.5" width="25.5" height="25"/>
+                                                    <rect key="frame" x="247.5" y="55" width="26" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="D9O-1Y-HDU"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="kJg-Ja-BNa"/>
@@ -1804,35 +1828,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKD-CD-Ety">
-                                <rect key="frame" x="19" y="72" width="163" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="GZT-8D-9Fj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="60"/>
-                                <color key="textColor" red="1" green="0.88366798049999995" blue="0.25971683810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIG-DM-SdE">
-                                <rect key="frame" x="204" y="49" width="158" height="95"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="158" id="Dw0-Xa-FLC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="60"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zp-pM-iBe">
-                                <rect key="frame" x="184" y="72" width="19" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="ABL-So-lPI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="54"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เป้าหมายที่ทำทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zK-FK-reY">
-                                <rect key="frame" x="67.5" y="136" width="252" height="67"/>
+                                <rect key="frame" x="68" y="136" width="252" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="7Bp-4D-Tcl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1840,22 +1840,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.17391198869999999" green="0.67896193270000005" blue="0.89561194180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5Zp-pM-iBe" firstAttribute="leading" secondItem="aKD-CD-Ety" secondAttribute="trailing" constant="2" id="0QF-W1-e0P"/>
                             <constraint firstItem="cGB-fq-1OB" firstAttribute="bottom" secondItem="eSa-QU-kQy" secondAttribute="top" id="680-vY-ni2"/>
-                            <constraint firstItem="5zK-FK-reY" firstAttribute="top" secondItem="5Zp-pM-iBe" secondAttribute="bottom" constant="17" id="8PE-FJ-0IL"/>
-                            <constraint firstItem="aKD-CD-Ety" firstAttribute="top" secondItem="jge-gT-uvF" secondAttribute="bottom" constant="72" id="Bjt-lA-GCP"/>
-                            <constraint firstItem="5zK-FK-reY" firstAttribute="centerX" secondItem="5Zp-pM-iBe" secondAttribute="centerX" id="F3R-yq-Ef2"/>
+                            <constraint firstItem="5zK-FK-reY" firstAttribute="top" secondItem="jge-gT-uvF" secondAttribute="bottom" constant="136" id="KcC-sF-FzP"/>
                             <constraint firstAttribute="trailing" secondItem="cGB-fq-1OB" secondAttribute="trailing" id="NTB-DC-Ws6"/>
-                            <constraint firstItem="cGB-fq-1OB" firstAttribute="top" secondItem="LIG-DM-SdE" secondAttribute="bottom" constant="86" id="SdG-B3-Fen"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LIG-DM-SdE" secondAttribute="trailing" constant="-3" id="TDX-EX-a8a"/>
-                            <constraint firstItem="aKD-CD-Ety" firstAttribute="top" secondItem="5Zp-pM-iBe" secondAttribute="top" id="Wda-Pj-eNE"/>
-                            <constraint firstItem="LIG-DM-SdE" firstAttribute="top" secondItem="jge-gT-uvF" secondAttribute="bottom" constant="49" id="Wkl-yE-QZB"/>
                             <constraint firstItem="cGB-fq-1OB" firstAttribute="top" secondItem="5zK-FK-reY" secondAttribute="bottom" constant="27" id="YlU-Fq-0BP"/>
-                            <constraint firstItem="aKD-CD-Ety" firstAttribute="bottom" secondItem="5Zp-pM-iBe" secondAttribute="bottom" id="YyY-Vf-iSp"/>
-                            <constraint firstItem="LIG-DM-SdE" firstAttribute="leading" secondItem="5Zp-pM-iBe" secondAttribute="trailing" constant="1" id="hAJ-Ys-9Mk"/>
                             <constraint firstItem="Q4t-6a-dFi" firstAttribute="leading" secondItem="NRz-t4-p4Y" secondAttribute="leadingMargin" constant="75" id="jLZ-f9-yCU"/>
                             <constraint firstItem="Q4t-6a-dFi" firstAttribute="top" secondItem="NRz-t4-p4Y" secondAttribute="top" constant="177" id="sW4-I2-l0X"/>
-                            <constraint firstItem="aKD-CD-Ety" firstAttribute="leading" secondItem="NRz-t4-p4Y" secondAttribute="leadingMargin" constant="3" id="vXZ-iG-hoS"/>
+                            <constraint firstItem="5zK-FK-reY" firstAttribute="leading" secondItem="NRz-t4-p4Y" secondAttribute="leadingMargin" constant="52" id="x4V-rW-Jgf"/>
                             <constraint firstItem="cGB-fq-1OB" firstAttribute="leading" secondItem="NRz-t4-p4Y" secondAttribute="leading" id="zUq-rZ-9pd"/>
                         </constraints>
                     </view>
@@ -2034,13 +2025,13 @@
                             <constraint firstItem="2EF-av-oE7" firstAttribute="leading" secondItem="PUe-Qo-f0V" secondAttribute="leadingMargin" id="yXJ-Mv-CF2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Cottage-50" id="NJp-eo-Gr4">
+                    <tabBarItem key="tabBarItem" title="หน้าแรก" image="Cottage-50" id="NJp-eo-Gr4">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="bjY-CF-2XB"/>
                     <connections>
-                        <outlet property="moneyTargetLbl" destination="Zmu-PX-rw3" id="m4e-H7-vOi"/>
-                        <outlet property="moneyTotalLbl" destination="9aa-cL-9GK" id="LUy-eZ-uHV"/>
+                        <outlet property="moneyTargetLbl" destination="Zmu-PX-rw3" id="k8H-7e-PxL"/>
+                        <outlet property="moneyTotalLbl" destination="9aa-cL-9GK" id="kS2-dD-6Xh"/>
                         <outlet property="tableView" destination="FDR-D1-0ib" id="tYT-0v-Hyk"/>
                     </connections>
                 </viewController>
@@ -2808,11 +2799,11 @@
             </objects>
             <point key="canvasLocation" x="18840.799999999999" y="841.52923538230891"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--เพิ่มเป้าหมาย-->
         <scene sceneID="KZe-f6-e94">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Cb-60-Tgv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Define Location-50" id="nb2-Uz-hdI"/>
+                    <tabBarItem key="tabBarItem" title="เพิ่มเป้าหมาย" image="Define Location-50" id="nb2-Uz-hdI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="N0h-Pz-okG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2905,11 +2896,11 @@
             </objects>
             <point key="canvasLocation" x="12093.6" y="840.62968515742136"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ปลดล็อก-->
         <scene sceneID="MbB-VG-4B4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Miv-j9-iHr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Lock-50" id="Awq-IN-GKd"/>
+                    <tabBarItem key="tabBarItem" title="ปลดล็อก" image="Lock-50" id="Awq-IN-GKd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="F9Z-p2-7yF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
@@ -22,7 +23,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-    
+        
     }
     
     
@@ -46,10 +47,10 @@ class LoginViewController: UIViewController {
         networkingService.signIn(email: emailTextField.text!, password: passwordTextField.text!)
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUITabBarController")
         present(vc, animated: true, completion: nil)
-        
+    
     }
 
-    
 
-    
+
+
 }
