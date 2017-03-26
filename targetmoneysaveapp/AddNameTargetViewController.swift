@@ -14,7 +14,6 @@ class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDele
     @IBOutlet weak var inputTargetTxt: UITextField!
     @IBOutlet weak var MyImageView:UIImageView!
 
-    var firDataSnapshotArray:[FIRDataSnapshot]! = [FIRDataSnapshot]()
     var databaseRef:FIRDatabaseReference!
     private var _databaseHandle:FIRDatabaseHandle! = nil
     
@@ -97,26 +96,6 @@ class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDele
         }
     }
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        databaseInit()
-    }
-    
-    func databaseInit(){
-        databaseRef = FIRDatabase.database().reference()
-        
-        _databaseHandle = self.databaseRef.child("AddTarget").observe(.childAdded, with: { (firebaseSnapshot) in
-            self.firDataSnapshotArray.append(firebaseSnapshot)
-            
-            //let indexPathOfLastRow = IndexPath(row: self.firDataSnapshotArray.count-1, section: 0)
-            //self.tableView.insertRows(at: [indexPathOfLastRow], with: .automatic)
-            
-            
-        })
-    }
-    
-   
 
 //    func logOut() {
 //        do{
@@ -127,37 +106,37 @@ class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDele
 //        }
 //    }
     
-    
-    deinit {
-        
-    }
 
     @IBAction func btnSendNameTarget(_ sender: Any) {
         
-        if((inputTargetTxt.text?.characters.count)! > 0) {
-            let nameTargetData = TargetData(nameTargetText: inputTargetTxt.text!)
-            
-            sendTargetName(nameTargetData: nameTargetData)
-            inputTargetTxt.text = ""
-            
-            databaseRef?.child("AddTarget/photoURL").setValue(MyImageView.image)
+        if(inputTargetTxt.text!.characters.count < 0) {
+            Const().showAlert(title: "Error", message: "กรุณากรอกจำนวนเงิน", viewController: self)
+            return
         }
+        else{
+            inputTargetTxt.backgroundColor = UIColor.white
+        }
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+        
+        let usersReference = ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!)
+        let timestamp = CurrentDateTimeToStr()
+        
+        let addPriceData = ["NameTarger": self.inputTargetTxt.text!,"Time": timestamp] as [String : Any]
+        
+        usersReference.updateChildValues(addPriceData)
+        
         
     }
     
-    func sendTargetName(nameTargetData: TargetData) {
-        
-//        var dataValue = [String: String]()
-//        dataValue[MoneyData.NAMETARGET_ID] = nameTargetData.nameTargetText
-        
-        let dataValue: Dictionary<String, AnyObject> =
-        [
-            TargetData.NAMETARGET_ID: nameTargetData.NameTargetText as AnyObject
-        ]
-        self.databaseRef.child("AddTarget").childByAutoId().setValue(dataValue)
-        
+    func CurrentDateTimeToStr() -> String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE dd-MM-yyyy HH:mm"
+        return dateFormatter.string(from: currentDate)
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

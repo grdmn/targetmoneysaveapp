@@ -13,28 +13,31 @@ class ShowTargetAcceptViewController: UIViewController {
     
     @IBOutlet weak var NametargetLbl:UILabel!
     @IBOutlet weak var PriceLbl:UILabel!
-    
-    var passDataName: String!
-    var passDataPrice: String!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("Target").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["NameTarger"] as? String ?? ""
+            self.NametargetLbl.text = username
+            
+            let price = value?["Price"] as? String ?? ""
+            self.PriceLbl.text = price
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
-
-
-    }
-    
-    
-    
-    
-
-    
-    
     
 }
+
