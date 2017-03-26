@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ShowTargetAllTableViewCell: UITableViewCell {
     
@@ -18,28 +19,11 @@ class ShowTargetAllTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func setValue(targetData: TargetData, priceData: TargetData, datetimeData: TargetData){
-        
-        allNameTarget.text = targetData.NameTargetText
-        priceTarget.text = priceData.PriceText
-        DateTimeLbl.text = datetimeData.DateTimeText
-        
-    }
     
-//    func setValue(targetData: TargetData) {
-//        allNameTarget.text = targetData.NameTargetText
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
 //    }
-//    
-//    func setValue(priceData: TargetDataPrice) {
-//        priceTarget.text = priceData.PriceText
-//    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

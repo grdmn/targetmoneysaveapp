@@ -33,11 +33,6 @@ class AddPriceViewController: UIViewController {
     
     @IBAction func btnSendPriceTarget(_ sender: Any) {
         
-//        if((inputPriceTxt.text?.characters.count)! > 0) {
-//            let priceData = TargetData(priceText: inputPriceTxt.text!, datetimeText:Const().CurrentDateTimeToStr())
-//            sendPrice(priceData: priceData, datetimeData: priceData)
-//            inputPriceTxt.text = ""
-//        }
         
         if (inputPriceTxt.text!.characters.count < 0) {
             Const().showAlert(title: "Error", message: "กรุณากรอกจำนวนเงิน", viewController: self)

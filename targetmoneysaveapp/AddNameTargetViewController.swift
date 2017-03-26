@@ -23,19 +23,6 @@ class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDele
         
         databaseRef = FIRDatabase.database().reference()
         
-        // Do any additional setup after loading the view.
-        
-//        logOut()
-//        
-//        if(FIRAuth.auth()?.currentUser == nil){
-//            
-//            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-//            
-//            self.navigationController?.present(loginVC, animated: true, completion: nil)
-//            
-//        }
-        
-        
     }
     
     @IBAction func PhotoAction(_ sender: Any) {

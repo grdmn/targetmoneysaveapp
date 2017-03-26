@@ -86,6 +86,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celldash = tableViewDash.dequeueReusableCell(withIdentifier: "PostCellDash")
+        
         celldash?.textLabel?.text = postDataDash[indexPath.row]
         
         return celldash!
