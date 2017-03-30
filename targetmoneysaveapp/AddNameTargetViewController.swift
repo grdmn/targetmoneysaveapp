@@ -123,6 +123,21 @@ class AddNameTargetViewController: UIViewController ,UIImagePickerControllerDele
         return dateFormatter.string(from: currentDate)
     }
 
+    func dismissKeyboard() {
+        //        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

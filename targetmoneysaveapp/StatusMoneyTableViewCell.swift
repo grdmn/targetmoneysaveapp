@@ -11,7 +11,7 @@ import UIKit
 class StatusMoneyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var TextStatusLbl:UILabel!
-    @IBOutlet weak var DateTimeLbl:UILabel!
+    //@IBOutlet weak var DateTimeLbl:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

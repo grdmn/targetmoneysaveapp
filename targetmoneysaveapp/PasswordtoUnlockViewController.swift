@@ -24,7 +24,7 @@ class PasswordtoUnlockViewController: UIViewController {
         
         
         if (confirmPasswordTextField.text!.characters.count<6) {
-            Const().showAlert(title: "Error", message: "Email more than 6 character", viewController: self)
+            Const().showAlert(title: "เดี๋ยวนะ", message: "รหัสผ่านต้องมีมากกว่า 6 ตัว", viewController: self)
             return
         }
         else{

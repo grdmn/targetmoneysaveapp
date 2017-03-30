@@ -26,6 +26,10 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    
+    
     @IBAction func registerClicked(_ sender: Any) {
         
             
@@ -73,7 +77,7 @@ class RegisterViewController: UIViewController {
     }
 
     func dismissKeyboard() {
-        //view.endEditing(true)
+//        view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

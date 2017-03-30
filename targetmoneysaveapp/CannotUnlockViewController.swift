@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class CannotUnlockViewController: UIViewController {
 
@@ -14,6 +17,33 @@ class CannotUnlockViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("PasswordlogPiggybank").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if snapshot.hasChild((FIRAuth.auth()?.currentUser?.uid)!){
+                
+                print("true rooms exist")
+                //                self.gotoCannotUnlockPage()
+                
+            }else{
+                
+                print("false room doesn't exist")
+                self.gotoCreatePasswordPage()
+            }
+            
+            
+        })
+
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +52,50 @@ class CannotUnlockViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func gobacktoHome(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUITabBarController")
+        present(vc, animated: true, completion: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        
     }
-    */
+    
+    
+    func gotoCannotUnlockPage() {
+//        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CannotUnlockPageViewController")
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = CannotUnlockNav
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "CannotUnlockPageNav") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //show window
+        appDelegate.window?.rootViewController = view
+
+        
+        
+    }
+    
+    
+    func gotoCreatePasswordPage() {
+//        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CreatePasswordPageNav")
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = CannotUnlockNav
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "CreatePasswordPageNav") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //show window
+        appDelegate.window?.rootViewController = view
+
+        
+        
+    }
+
+    
+    
+
+    
 
 }

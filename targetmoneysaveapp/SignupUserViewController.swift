@@ -15,7 +15,6 @@ class SignupUserViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var emailTextField:UITextField!
     @IBOutlet weak var passwordTextField:UITextField!
     @IBOutlet weak var userImageView: UIImageView!
-    var pickerView: UIPickerView!
     let networkingService = NetworkService()
     
     
@@ -25,47 +24,22 @@ class SignupUserViewController: UIViewController, UIImagePickerControllerDelegat
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func choosePicker(sender: AnyObject) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.allowsEditing = true
-        
-        let alertController = UIAlertController(title: "เพิ่มรูปภาพของคุณ", message: "เลือกจาก", preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "กล้อง", style: .default) { (action) in
-            pickerController.sourceType = .camera
-            self.present(pickerController, animated: true, completion: nil)
-        }
-        
-        let photoLibraryAction = UIAlertAction(title: "รูปถ่าย", style: .default) { (action) in
-            pickerController.sourceType = .photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
-        }
-        
-        let savePhotoAction = UIAlertAction(title: "บันทึก", style: .default) { (action) in
-            pickerController.sourceType = .savedPhotosAlbum
-            self.present(pickerController, animated: true, completion: nil)
-        }
-        
-        
-        let cancleAction = UIAlertAction(title: "ยกเลิก", style: .destructive, handler: nil)
-        alertController.addAction(cameraAction)
-        alertController.addAction(photoLibraryAction)
-        alertController.addAction(savePhotoAction)
-        
-        
-        present(alertController, animated: true, completion:nil)
-
+    
+    func dismissKeyboard() {
+        //        view.endEditing(true)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-            userImageView.image = image
-            self.dismiss(animated: true, completion: nil)
-            
+        textField.resignFirstResponder()
+        return true
+        
+    }
     
-}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     
     
     @IBAction func signUpAction(sender: AnyObject) {
@@ -76,6 +50,9 @@ class SignupUserViewController: UIViewController, UIImagePickerControllerDelegat
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUITabBarController")
         present(vc, animated: true, completion: nil)
+        
+        
+        
 
     }
 }

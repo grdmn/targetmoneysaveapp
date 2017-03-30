@@ -13,195 +13,39 @@ import Firebase
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var tableView:UITableView!
     
     @IBOutlet weak var moneyTotalLbl:UILabel!
     @IBOutlet weak var moneyTargetLbl:UILabel!
-
-    
-//    var MoneyDataArray = [MoneyData]()
-    
-    var databaseRef:FIRDatabaseReference!
-    private var _databaseHandle:FIRDatabaseHandle! = nil
-    
-    var userEmail:String! = ""
+    @IBOutlet weak var usernameLbl:UILabel!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        
-//        logOut()
-        
-        if(FIRAuth.auth()?.currentUser == nil){
+        if let user = FIRAuth.auth()?.currentUser {
             
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginSID")  as! LoginViewController
-        
-            self.navigationController?.present(loginVC, animated: true, completion: nil)
-            
+            if !user.isEmailVerified {
+                AppDelegate.showAlertMsg(withViewController: self, message: "บัญชีของคุณยังไม่ได้รับการยืนยัน โปรดยืนยันบัญชีผู้ใช้")
+            }
+        } else {
+            let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "ตกลง", style: .default, handler: { (action: UIAlertAction) in
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
-        
-        
-        
-        
-        //FIRMessaging.messaging().subscribe(toTopic: "/topic/newsa")
-    
 
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        let user = FIRAuth.auth()?.currentUser
-//        var newData = false
-       
-    
-    }
 
-    
-//    
-//    func CalculateTotal () {
-//
-//            let intMoneytotal = Int(self.moneyTotalLbl.text!)
-//            let intMoneyTarget = Int(self.moneyTargetLbl.text!)
-//            
-//            if intMoneytotal! == intMoneyTarget! {
-//                self.unlockPage()
-//            }
-//    
-//    }
-    
-    
-    func unlockPage() {
-        let unlockPage = self.storyboard?.instantiateViewController(withIdentifier: "UnlockPageViewController")
+    func gotoHome() {
+        let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "Login")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = unlockPage
+        appDelegate.window?.rootViewController = HomeNav
     }
+
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-////      getUserEmail()
-//        databaseInit()
-//        databaseRelease()
-//        //CalculateTotal()
-//
-//
-//        
-//        
-//    }
-//    
-//    func getUserEmail() {
-//        
-//        let firAuthEmail = FIRAuth.auth()?.currentUser?.email
-//        
-//        if firAuthEmail != nil{
-//            userEmail = firAuthEmail
-//            userEmail = replaceSpacialCharacter(inputStr: userEmail)
-//            
-//            databaseRelease()
-//            databaseInit()
-//        
-//        }
-//        
-//    }
-//    
-//    func replaceSpacialCharacter(inputStr: String) -> String  {
-//        var outputStr = inputStr
-//        
-//        outputStr = outputStr.replacingOccurrences(of: ".", with: "dot")
-//        outputStr = outputStr.replacingOccurrences(of: "#", with: "sharp")
-//        outputStr = outputStr.replacingOccurrences(of: "$", with: "dollar")
-//        outputStr = outputStr.replacingOccurrences(of: "[", with: "stasign")
-//        outputStr = outputStr.replacingOccurrences(of: "]", with: "endsign")
-//        
-//        return outputStr
-//        
-//    }
-//    
-//    func databaseInit(){
-//        
-//        databaseRef = FIRDatabase.database().reference()
-    
-//        _databaseHandle = self.databaseRef.child("StatusMoney").observe(.value, with: {
-//            (firebaseSnapshot) in
-//            
-//            self.MoneyDataArray = []
-//            
-//            if let snapshot = firebaseSnapshot.children.allObjects as? [FIRDataSnapshot] {
-//                for snap in snapshot {
-//                    if let snapValue = snap.value as? Dictionary<String, AnyObject>
-//                    {
-//                        let key = snap.key
-//                        let moneyData = MoneyData(priKey: key, data: snapValue)
-//                        self.MoneyDataArray.append(moneyData)
-//                    }
-//                    
-//                }
-//            }
-//            self.tableView.reloadData()
-//        })
-        
-//    }
-    
-//    func databaseRelease(){
-//        if(_databaseHandle == nil) {
-//            self.databaseRef.child("StatusMoney").removeObserver(withHandle: _databaseHandle)
-//            _databaseHandle = nil
-//        }
-//    }
-//    
-//    
-//    func logOut() {
-//        do{
-//            try FIRAuth.auth()?.signOut()
-//        }
-//        catch let error as NSError{
-//            print(error.localizedDescription)
-//        }
-//    }
-//    
-//    
-//    deinit {
-//        databaseRelease()
-//    }
-//    
-//    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return MoneyDataArray.count
-//        return firDataSnapshotArray.count
-//        return
-//        
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//    
-//        let moneyData = MoneyDataArray[indexPath.row]
-//        
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "StatusMoneyCell") as? StatusMoneyTableViewCell {
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//        }
-//        else{
-//
-//            let cell = StatusMoneyTableViewCell()
-//            cell.setValue(moneyData: moneyData)
-//            
-//            return cell
-//            
-//        }
-//        return
-//
-//    }
 
 }
