@@ -9,6 +9,7 @@
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)grdmn.targetmoneysaveapp</string>
+		<string>$(AppIdentifierPrefix)th.ac.su.ict.web.TargetMoneySaveApp</string>
 	</array>
 </dict>
 </plist>

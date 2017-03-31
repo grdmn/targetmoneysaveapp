@@ -48,6 +48,23 @@ class CreatePasswordLockViewController: UIViewController {
     }
     
     
+    func dismissKeyboard() {
+        //view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    
+    
     @IBAction func createpasswordClicked(_ sender: Any) {
         
         if (passwordTextField.text!.characters.count<6) {
@@ -64,15 +81,15 @@ class CreatePasswordLockViewController: UIViewController {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
         let usersReference = ref.child("PasswordlogPiggybank").child((FIRAuth.auth()?.currentUser?.uid)!)
-        let values = ["password": self.passwordTextField.text, "user": FIRAuth.auth()?.currentUser?.displayName]
-        usersReference.updateChildValues(values, withCompletionBlock: {(error,ref) in
+        let value = ["password": self.passwordTextField.text, "user": FIRAuth.auth()?.currentUser?.displayName, "email": FIRAuth.auth()?.currentUser?.email]
+        usersReference.updateChildValues(value as Any as! [AnyHashable : Any], withCompletionBlock: {(error,ref) in
             if error != nil{
                 print(error!)
                 return
             }
             
             print("save password successful into firebase db")
-            self.gotoCannotUnlockPage()
+            self.gotoHome()
             
             
         })
@@ -82,9 +99,14 @@ class CreatePasswordLockViewController: UIViewController {
 }
     
     
-    
     func gotoCannotUnlockPage() {
         let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CannotUnlockPageViewController")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = CannotUnlockNav
+    }
+    
+    func gotoHome() {
+        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "HomeUITabBarController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = CannotUnlockNav
     }

@@ -17,6 +17,8 @@ class PasswordtoUnlockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkPassword()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -30,28 +32,28 @@ class PasswordtoUnlockViewController: UIViewController {
         else{
             confirmPasswordTextField.backgroundColor = UIColor.white
         }
+    
         
         
-        //let password = passwordTextField.text!
-        
-        
+    }
+    
+    
+    func checkPassword () {
         let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
-        let usersReference = ref.child("testUser/passwordlock")
-        let values = ["passwordunlock": self.confirmPasswordTextField.text]
-        usersReference.updateChildValues(values, withCompletionBlock: {(error,ref) in
-            if error != nil{
-                print(error!)
-                return
-            }
-            
-            print("save password successful into firebase db")
-            
-            
-        })
-
-                
+        let userID = FIRAuth.auth()?.currentUser?.uid
         
+        ref.child("PasswordlogPiggybank").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["password"] as? String ?? ""
             
+            print(username)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
     }
 
     

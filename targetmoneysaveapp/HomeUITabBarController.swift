@@ -19,17 +19,12 @@ class HomeUITabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         
         if FIRAuth.auth()?.currentUser != nil {
-            
-            do {
-                try FIRAuth.auth()?.signOut()
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
-                present(vc, animated: true, completion: nil)
-            }catch let error as NSError {
-                print(error.localizedDescription)
-            }
-            
+            // User is signed in.
+            // ...
+        } else {
+            // No user is signed in.
+            // ...
         }
-
         
     }
 

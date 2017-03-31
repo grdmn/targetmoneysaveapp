@@ -41,7 +41,7 @@ struct NetworkService {
     func signIn(email:String, password: String){
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error==nil {
-                if let user = user {
+                if user != nil {
                     print("sign in successful")
                     
                     let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
@@ -50,6 +50,7 @@ struct NetworkService {
                     let addPriceData = ["Email": FIRAuth.auth()?.currentUser?.email as Any]
                     usersReference.setValue(addPriceData)
                     
+                    
                 }
             }else {
                 print(error!.localizedDescription)
@@ -57,48 +58,51 @@ struct NetworkService {
         })
     }
     
-    private func setUserInfo(user: FIRUser!, username: String, password: String, data: NSData) {
-        //Creat path for the user image
-        let imagePath = "profileImage\(user.uid)/userPic.jpg"
-        //Creat image Reference
-        let imageRef = storageRef.child(imagePath)
-        //Create Metadata for the image
-        let metaData = FIRStorageMetadata()
-        metaData.contentType = "image/jpeg"
+    private func setUserInfo(user: FIRUser!, username: String, password: String) {
+//        //Creat path for the user image
+//        let imagePath = "profileImage\(user.uid)/userPic.jpg"
+//        //Creat image Reference
+//        let imageRef = storageRef.child(imagePath)
+//        //Create Metadata for the image
+//        let metaData = FIRStorageMetadata()
+//        metaData.contentType = "image/jpeg"
+//        
+//        //Save the user Image in the Firebase Storage File
+//        imageRef.put(data as Data, metadata: metaData) {(metaData, error) in
+//            
+//            if error == nil {
+//                let
+//                changeRequest.displayName = username
+//                changeRequest.commitChanges(completion: { (error) in
+//                    
+//                    if error == nil{
+//                        self.saveInfo(user: user,username:username, password: password)
+//                    }else {
+//                        print(error?.localizedDescription as Any)
+//                    }
+//                    
+//                })
+//            }else {
+//                print(error?.localizedDescription as Any)
+//            }
+//
+//        }
         
-        //Save the user Image in the Firebase Storage File
-        imageRef.put(data as Data, metadata: metaData) {(metaData, error) in
-            
-            if error == nil {
-                let changeRequest = user.profileChangeRequest()
-                changeRequest.displayName = username
-                changeRequest.photoURL = metaData!.downloadURL()
-                changeRequest.commitChanges(completion: { (error) in
-                    
-                    if error == nil{
-                        self.saveInfo(user: user,username:username, password: password)
-                    }else {
-                        print(error?.localizedDescription as Any)
-                    }
-                    
-                })
-            }else {
-                print(error?.localizedDescription as Any)
-            }
         
-        }
     }
     
-    func signUp(email: String, username: String, password: String, data: NSData!){
+    func signUp(email: String, username: String, password: String){
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
-                self.setUserInfo(user: user, username: username, password: password, data: data)
+                self.setUserInfo(user: user, username: username, password: password)
                 
                 let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
                 let usersReference = ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!)
                 
                 let addPriceData = ["Price": FIRAuth.auth()?.currentUser?.email as Any]
                 usersReference.setValue(addPriceData)
+                
+                self.saveInfo(user: user, username: username, password: password)
                 
             }else {
                 print(error?.localizedDescription as Any)
@@ -113,6 +117,7 @@ struct NetworkService {
             }
         })
     }
+    
 
 }
     

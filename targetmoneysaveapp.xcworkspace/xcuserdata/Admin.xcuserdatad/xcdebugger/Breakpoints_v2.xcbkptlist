@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "targetmoneysaveapp/CannotUnlockViewController.swift"
-            timestampString = "512377344.231213"
+            filePath = "targetmoneysaveapp/PasswordtoUnlockViewController.swift"
+            timestampString = "512613396.324621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "checkPassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
