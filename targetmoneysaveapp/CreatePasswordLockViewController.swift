@@ -89,6 +89,7 @@ class CreatePasswordLockViewController: UIViewController {
             }
             
             print("save password successful into firebase db")
+            
             self.gotoHome()
             
             

@@ -24,6 +24,9 @@ class LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        
+        
+        
     }
     
     
@@ -49,6 +52,37 @@ class LoginViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if let _ = user {
+                //               self.gotoProfile()
+                self.gotoHome()
+            }
+        })
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+    }
+    
+    func gotoHome() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "HomeUITabBarController") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //show window
+        appDelegate.window?.rootViewController = view
+        
+    }
+    
+    
+
 
 
 

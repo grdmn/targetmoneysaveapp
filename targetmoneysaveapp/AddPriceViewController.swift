@@ -43,13 +43,52 @@ class AddPriceViewController: UIViewController {
         }
         
         let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+        
+        let pricelabel = inputPriceTxt.text
+        let pricetextfromstring = Int(pricelabel!)
+        
         let usersReference = ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!)
         
-        let addPriceData = ["Price": self.inputPriceTxt.text!, "Username":FIRAuth.auth()?.currentUser?.email as Any]
+        let addPriceData = ["Price": pricetextfromstring! , "Username":FIRAuth.auth()?.currentUser?.email as Any]
         usersReference.setValue(addPriceData)
         
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        
+//        let ref = FIRDatabase.database().reference()
+//        
+//        ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            if snapshot.hasChild("NameTarger"){
+//                
+//                print("true rooms exist")
+//                self.showTargetAccept()
+//                
+//                
+//            }else{
+//                
+//                print("false room doesn't exist")
+//                
+//            }
+//            
+//            
+//        })
+        
+        
+    }
+    
+    
+//    func showTargetAccept() {
+//        let showTargetAccept = self.storyboard?.instantiateViewController(withIdentifier: "TargetDetail")
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = showTargetAccept
+//    }
+
+    
     
     func dismissKeyboard() {
         //        view.endEditing(true)

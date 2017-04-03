@@ -30,13 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
         
-        
         FIRApp.configure()
+        
         //FIRDatabase.database().persistenceEnabled = true
-        FIRDatabase.database().persistenceEnabled = true
 
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.getFIRToken(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
         
@@ -82,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func getFIRToken(notification: NSNotification) {
         let firToken = FIRInstanceID.instanceID().token()
-        print("InstanceID token:\(firToken)")
+        print("InstanceID token:\(String(describing: firToken))")
         
         connectFIRMessaging()
     }
@@ -90,17 +87,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func connectFIRMessaging(){
         FIRMessaging.messaging().connect { (firebaseError) in
             if (firebaseError != nil) {
-                print("\(firebaseError?.localizedDescription)")
+                print("\(String(describing: firebaseError?.localizedDescription))")
             }
             else {
                 print("successful connect to FIRMessaging")
             }
         }
     }
-    
-    
-        
-    
 
 
 

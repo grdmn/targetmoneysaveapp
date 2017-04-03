@@ -69,22 +69,10 @@ struct NetworkService {
 //        
 //        //Save the user Image in the Firebase Storage File
 //        imageRef.put(data as Data, metadata: metaData) {(metaData, error) in
-//            
-//            if error == nil {
-//                let
-//                changeRequest.displayName = username
-//                changeRequest.commitChanges(completion: { (error) in
-//                    
-//                    if error == nil{
-//                        self.saveInfo(user: user,username:username, password: password)
-//                    }else {
-//                        print(error?.localizedDescription as Any)
-//                    }
-//                    
-//                })
-//            }else {
-//                print(error?.localizedDescription as Any)
-//            }
+//
+            self.saveInfo(user: user,username:username, password: password)
+        
+                
 //
 //        }
         
@@ -99,7 +87,7 @@ struct NetworkService {
                 let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
                 let usersReference = ref.child("Target").child((FIRAuth.auth()?.currentUser?.uid)!)
                 
-                let addPriceData = ["Price": FIRAuth.auth()?.currentUser?.email as Any]
+                let addPriceData = ["Price": "0"]
                 usersReference.setValue(addPriceData)
                 
                 self.saveInfo(user: user, username: username, password: password)

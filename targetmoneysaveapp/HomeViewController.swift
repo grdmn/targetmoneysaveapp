@@ -21,6 +21,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+    }
+    
+    
+    private func setUserDataToView(withFIRUser user: FIRUser) {
+        
+        usernameLbl.text = user.displayName
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if let user = FIRAuth.auth()?.currentUser {
             
             setUserDataToView(withFIRUser: user)
@@ -42,8 +53,9 @@ class HomeViewController: UIViewController {
             ref.child("Target").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? NSDictionary
-                let price = value?["Price"] as? String ?? ""
-                self.moneyTargetLbl.text = price
+                let price = value?["Price"] as? Int
+                self.moneyTargetLbl.text = price?.description
+                
                 
                 
                 // ...
@@ -54,17 +66,17 @@ class HomeViewController: UIViewController {
             ref.child("MoneyCoin").observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? NSDictionary
-                let coin = value?["CoinBalance"] as? Int
-                self.moneyTotalLbl.text = coin?.description
-            
+                let coin2 = value?["CoinBalance"] as? Int
+                self.moneyTotalLbl.text = coin2?.description
+                
                 
                 // ...
             }) { (error) in
                 print(error.localizedDescription)
             }
-
             
-
+            
+            
             
         } else {
             let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
@@ -72,38 +84,10 @@ class HomeViewController: UIViewController {
             })
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
-        
+            
         }
         
-    }
-    
-    
-    private func setUserDataToView(withFIRUser user: FIRUser) {
-        
-        usernameLbl.text = user.displayName
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let ref = FIRDatabase.database().reference()
-        
-        ref.child("PasswordlogPiggybank").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if snapshot.hasChild((FIRAuth.auth()?.currentUser?.uid)!){
-                
-                print("true rooms exist")
-                
-            }else{
-                
-                print("false room doesn't exist")
-                self.gotoCreatePasswordPage()
-            }
-            
-            
-        })
 
-        
     }
     
 
@@ -129,6 +113,5 @@ class HomeViewController: UIViewController {
         
     }
 
-    
 
 }

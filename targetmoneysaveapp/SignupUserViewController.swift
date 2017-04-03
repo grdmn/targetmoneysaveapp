@@ -46,7 +46,7 @@ class SignupUserViewController: UIViewController, UIImagePickerControllerDelegat
         
         networkingService.signUp(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!)
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUITabBarController")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
         present(vc, animated: true, completion: nil)
         
         

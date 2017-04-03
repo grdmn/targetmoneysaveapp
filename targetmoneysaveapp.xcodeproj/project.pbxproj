@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841702941E8F86E1005EBFD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841702931E8F86E1005EBFD9 /* Assets.xcassets */; };
+		841702961E8FAF9E005EBFD9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841702951E8FAF9E005EBFD9 /* TestViewController.swift */; };
 		84230F311E86053900C82000 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84230F301E86053900C82000 /* NetworkService.swift */; };
 		84230F331E860CD900C82000 /* SignupUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84230F321E860CD900C82000 /* SignupUserViewController.swift */; };
 		84230F351E860F0400C82000 /* CustomizableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84230F341E860F0400C82000 /* CustomizableImageView.swift */; };
 		8426E0BF1E8A3C6800467DA9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8426E0BE1E8A3C6800467DA9 /* ExternalAccessory.framework */; };
 		844418B41E3A6A23000DF349 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B31E3A6A23000DF349 /* SignupViewController.swift */; };
 		844418B61E3A6AE7000DF349 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B51E3A6AE7000DF349 /* SigninViewController.swift */; };
-		844418B81E3A7D15000DF349 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844418B71E3A7D15000DF349 /* ProfileViewController.swift */; };
 		84444A471E8D7B0F002A49BE /* ForgotPiggybankLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84444A461E8D7B0F002A49BE /* ForgotPiggybankLockViewController.swift */; };
 		8460E0391E67499400F651BA /* CreatePasswordLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E0381E67499400F651BA /* CreatePasswordLockViewController.swift */; };
 		8460E03B1E67519300F651BA /* WaitingtoUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E03A1E67519300F651BA /* WaitingtoUnlockViewController.swift */; };
@@ -23,10 +24,10 @@
 		84690E0E1E6179FF0038C490 /* ShowAllTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */; };
 		84690E101E617C200038C490 /* ShowTargetAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */; };
 		8481A7A31E5E1161003F0ADB /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481A7A21E5E1161003F0ADB /* Const.swift */; };
+		849F43EC1E916CE50012A37C /* UserPrfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F43EB1E916CE50012A37C /* UserPrfileViewController.swift */; };
 		84AB73641E842B7F00DC8D3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AB73631E842B7F00DC8D3D /* GoogleService-Info.plist */; };
 		84B822311E240B5C004D58F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B822301E240B5C004D58F7 /* AppDelegate.swift */; };
 		84B822361E240B5C004D58F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B822341E240B5C004D58F7 /* Main.storyboard */; };
-		84B822381E240B5C004D58F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B822371E240B5C004D58F7 /* Assets.xcassets */; };
 		84B8223B1E240B5C004D58F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B822391E240B5C004D58F7 /* LaunchScreen.storyboard */; };
 		84B822451E24112B004D58F7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B822441E24112B004D58F7 /* AdSupport.framework */; };
 		84B822471E241E2B004D58F7 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B822461E241E2B004D58F7 /* ComposeViewController.swift */; };
@@ -50,13 +51,14 @@
 		1920537218AE101DD80D692A /* Pods_targetmoneysaveapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_targetmoneysaveapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3F3A0E7AFB7BBF7B75DD8B /* Pods-targetmoneysaveapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-targetmoneysaveapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-targetmoneysaveapp/Pods-targetmoneysaveapp.debug.xcconfig"; sourceTree = "<group>"; };
 		417314531158CAA55E522A3E /* Pods-targetmoneysaveapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-targetmoneysaveapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-targetmoneysaveapp/Pods-targetmoneysaveapp.release.xcconfig"; sourceTree = "<group>"; };
+		841702931E8F86E1005EBFD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		841702951E8FAF9E005EBFD9 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		84230F301E86053900C82000 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		84230F321E860CD900C82000 /* SignupUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserViewController.swift; sourceTree = "<group>"; };
 		84230F341E860F0400C82000 /* CustomizableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableImageView.swift; sourceTree = "<group>"; };
 		8426E0BE1E8A3C6800467DA9 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		844418B31E3A6A23000DF349 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		844418B51E3A6AE7000DF349 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
-		844418B71E3A7D15000DF349 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84444A461E8D7B0F002A49BE /* ForgotPiggybankLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPiggybankLockViewController.swift; sourceTree = "<group>"; };
 		845FE9391E34A09F00674826 /* targetmoneysaveapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = targetmoneysaveapp.entitlements; sourceTree = "<group>"; };
 		8460E0381E67499400F651BA /* CreatePasswordLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordLockViewController.swift; sourceTree = "<group>"; };
@@ -67,11 +69,11 @@
 		84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAllTargetViewController.swift; sourceTree = "<group>"; };
 		84690E0F1E617C200038C490 /* ShowTargetAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowTargetAllTableViewCell.swift; path = ../ShowTargetAllTableViewCell.swift; sourceTree = "<group>"; };
 		8481A7A21E5E1161003F0ADB /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		849F43EB1E916CE50012A37C /* UserPrfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrfileViewController.swift; sourceTree = "<group>"; };
 		84AB73631E842B7F00DC8D3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84B8222D1E240B5C004D58F7 /* targetmoneysaveapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = targetmoneysaveapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B822301E240B5C004D58F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B822351E240B5C004D58F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84B822371E240B5C004D58F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B8223A1E240B5C004D58F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B8223C1E240B5C004D58F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B822441E24112B004D58F7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				845FE9391E34A09F00674826 /* targetmoneysaveapp.entitlements */,
+				841702931E8F86E1005EBFD9 /* Assets.xcassets */,
 				84B822301E240B5C004D58F7 /* AppDelegate.swift */,
 				84B822461E241E2B004D58F7 /* ComposeViewController.swift */,
 				84B822481E24227A004D58F7 /* TargetPageViewController.swift */,
@@ -146,14 +149,12 @@
 				844418B51E3A6AE7000DF349 /* SigninViewController.swift */,
 				84F2D0D91E3BEDA300AC023D /* ShowTargetViewController.swift */,
 				84B822341E240B5C004D58F7 /* Main.storyboard */,
-				84B822371E240B5C004D58F7 /* Assets.xcassets */,
 				84B822391E240B5C004D58F7 /* LaunchScreen.storyboard */,
 				84B8223C1E240B5C004D58F7 /* Info.plist */,
 				84AB73631E842B7F00DC8D3D /* GoogleService-Info.plist */,
 				8481A7A21E5E1161003F0ADB /* Const.swift */,
 				84E4764D1E609B3200B9C289 /* LoginViewController.swift */,
 				84E476471E608D5D00B9C289 /* ForgotPasswordViewController.swift */,
-				844418B71E3A7D15000DF349 /* ProfileViewController.swift */,
 				84E476491E60950E00B9C289 /* HomeViewController.swift */,
 				84690E0B1E6161290038C490 /* AddNameTargetViewController.swift */,
 				84690E0D1E6179FF0038C490 /* ShowAllTargetViewController.swift */,
@@ -172,6 +173,8 @@
 				84230F321E860CD900C82000 /* SignupUserViewController.swift */,
 				84230F341E860F0400C82000 /* CustomizableImageView.swift */,
 				84444A461E8D7B0F002A49BE /* ForgotPiggybankLockViewController.swift */,
+				841702951E8FAF9E005EBFD9 /* TestViewController.swift */,
+				849F43EB1E916CE50012A37C /* UserPrfileViewController.swift */,
 			);
 			path = targetmoneysaveapp;
 			sourceTree = "<group>";
@@ -277,10 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B8223B1E240B5C004D58F7 /* LaunchScreen.storyboard in Resources */,
-				84B822381E240B5C004D58F7 /* Assets.xcassets in Resources */,
 				84AB73641E842B7F00DC8D3D /* GoogleService-Info.plist in Resources */,
 				84BB4A681E7D485F0054F9D2 /* SukhumvitSet.ttc in Resources */,
 				84B822361E240B5C004D58F7 /* Main.storyboard in Resources */,
+				841702941E8F86E1005EBFD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,12 +352,12 @@
 				8460E03F1E67520300F651BA /* PasswordtoUnlockViewController.swift in Sources */,
 				84B822471E241E2B004D58F7 /* ComposeViewController.swift in Sources */,
 				8460E03D1E6751E000F651BA /* UnlockPageViewController.swift in Sources */,
+				841702961E8FAF9E005EBFD9 /* TestViewController.swift in Sources */,
 				84F23EC71E61A07300C6B4EA /* AddPriceViewController.swift in Sources */,
 				84DA422D1E2C682F0001DF7D /* DashboardViewController.swift in Sources */,
 				844418B61E3A6AE7000DF349 /* SigninViewController.swift in Sources */,
 				8460E03B1E67519300F651BA /* WaitingtoUnlockViewController.swift in Sources */,
 				84230F331E860CD900C82000 /* SignupUserViewController.swift in Sources */,
-				844418B81E3A7D15000DF349 /* ProfileViewController.swift in Sources */,
 				84690E0C1E6161290038C490 /* AddNameTargetViewController.swift in Sources */,
 				84E4764A1E60950E00B9C289 /* HomeViewController.swift in Sources */,
 				84E4764E1E609B3200B9C289 /* LoginViewController.swift in Sources */,
@@ -368,6 +371,7 @@
 				8481A7A31E5E1161003F0ADB /* Const.swift in Sources */,
 				84230F311E86053900C82000 /* NetworkService.swift in Sources */,
 				84E74D5D1E80DBC200F6250F /* HomeUITabBarController.swift in Sources */,
+				849F43EC1E916CE50012A37C /* UserPrfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

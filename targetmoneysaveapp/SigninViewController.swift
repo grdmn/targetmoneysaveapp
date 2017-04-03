@@ -66,8 +66,7 @@ class SigninViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
-//        ref.updateChildValues(["someValue":123123])
+        
         
         
         
