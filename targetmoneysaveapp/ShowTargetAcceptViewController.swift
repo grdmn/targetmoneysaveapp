@@ -28,8 +28,8 @@ class ShowTargetAcceptViewController: UIViewController {
             let username = value?["NameTarger"] as? String ?? ""
             self.NametargetLbl.text = username
             
-            let price = value?["Price"] as? String ?? ""
-            self.PriceLbl.text = price
+            let price = value?["Price"] as? Int
+            self.PriceLbl.text = price?.description
             
             // ...
         }) { (error) in

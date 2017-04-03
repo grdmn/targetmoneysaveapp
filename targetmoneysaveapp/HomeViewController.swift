@@ -20,6 +20,24 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("PasswordlogPiggybank").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if snapshot.hasChild((FIRAuth.auth()?.currentUser?.uid)!){
+                
+                print("user have password to unlock piggybank")
+                
+            }else{
+                
+                print("user no password please send to create password")
+                self.gotoCreatePasswordPage()
+            }
+            
+            
+        })
+
     
     }
     
@@ -87,6 +105,7 @@ class HomeViewController: UIViewController {
             
         }
         
+        
 
     }
     
@@ -97,12 +116,6 @@ class HomeViewController: UIViewController {
         appDelegate.window?.rootViewController = HomeNav
     }
     
-    func gotoCannotUnlockPage() {
-        let CannotUnlockNav = self.storyboard?.instantiateViewController(withIdentifier: "CannotUnlockPageViewController")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = CannotUnlockNav
-    }
-
     func gotoCreatePasswordPage() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

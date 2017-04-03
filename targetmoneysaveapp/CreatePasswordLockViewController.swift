@@ -26,24 +26,6 @@ class CreatePasswordLockViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let ref = FIRDatabase.database().reference()
-        
-        ref.child("PasswordlogPiggybank").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if snapshot.hasChild((FIRAuth.auth()?.currentUser?.uid)!){
-                
-                print("true rooms exist")
-                self.gotoCannotUnlockPage()
-                
-            }else{
-                
-                print("false room doesn't exist")
-            }
-            
-            
-        })
-
-        
         
     }
     

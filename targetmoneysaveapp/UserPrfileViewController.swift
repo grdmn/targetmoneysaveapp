@@ -8,29 +8,61 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class UserPrfileViewController: UIViewController {
+    
+    @IBOutlet weak var Usernamelabel:UILabel!
+    @IBOutlet weak var Emaillabel:UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
+    
+    private func setUserDataToView(withFIRUser user: FIRUser) {
+        
+        Usernamelabel.text = user.displayName
+        Emaillabel.text = user.email
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            setUserDataToView(withFIRUser: user)
+            
+        } else {
+            let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "ตกลง", style: .default, handler: { (action: UIAlertAction) in
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
 
+    }
+    
+    
+    
+    
+
+    func signout() {
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

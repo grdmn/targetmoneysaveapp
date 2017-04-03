@@ -100,6 +100,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="บัญชีผู้ใช้" image="Contact Card-50" id="iiB-Pr-Scj"/>
+                    <connections>
+                        <outlet property="Emaillabel" destination="UM6-S2-nlT" id="yQw-r9-jV0"/>
+                        <outlet property="Usernamelabel" destination="6hL-hI-sPC" id="rkb-G6-wLb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT6-nf-4CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

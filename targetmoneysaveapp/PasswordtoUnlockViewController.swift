@@ -42,17 +42,17 @@ class PasswordtoUnlockViewController: UIViewController {
         let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-        ref.child("PasswordlogPiggybank").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let username = value?["password"] as? String ?? ""
-            
-            print(username)
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+//        ref.child("PasswordlogPiggybank").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let username = value?["password"] as? String ?? ""
+//            
+//            print(username)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
 
     }
 
