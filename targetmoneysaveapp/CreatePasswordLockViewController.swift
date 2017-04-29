@@ -63,7 +63,7 @@ class CreatePasswordLockViewController: UIViewController {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
         let usersReference = ref.child("PasswordlogPiggybank").child((FIRAuth.auth()?.currentUser?.uid)!)
-        let value = ["password": self.passwordTextField.text, "user": FIRAuth.auth()?.currentUser?.displayName, "email": FIRAuth.auth()?.currentUser?.email]
+        let value = ["password": self.passwordTextField.text as Any, "user": FIRAuth.auth()?.currentUser?.displayName! as Any, "email": FIRAuth.auth()?.currentUser?.email as Any] as [String : Any]
         usersReference.updateChildValues(value as Any as! [AnyHashable : Any], withCompletionBlock: {(error,ref) in
             if error != nil{
                 print(error!)

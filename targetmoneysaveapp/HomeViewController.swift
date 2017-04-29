@@ -18,8 +18,29 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moneyTargetLbl:UILabel!
     @IBOutlet weak var usernameLbl:UILabel!
     
+    var counter = 3
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkusercreatepassword()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(HomeViewController.updateTimer), userInfo: nil, repeats: true)
+        
+    }
+    
+    internal func updateTimer() {
+        counter = counter - 1
+        if(counter > 0) {
+            print("Hey got it")
+            updatedata()
+        }else {
+            counter = 3
+        }
+    }
+    
+    func checkusercreatepassword() {
         
         let ref = FIRDatabase.database().reference()
         
@@ -37,10 +58,8 @@ class HomeViewController: UIViewController {
             
             
         })
-
-    
+        
     }
-    
     
     private func setUserDataToView(withFIRUser user: FIRUser) {
         
@@ -75,7 +94,6 @@ class HomeViewController: UIViewController {
                 self.moneyTargetLbl.text = price?.description
                 
                 
-                
                 // ...
             }) { (error) in
                 print(error.localizedDescription)
@@ -96,6 +114,7 @@ class HomeViewController: UIViewController {
             
             
             
+            
         } else {
             let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "ตกลง", style: .default, handler: { (action: UIAlertAction) in
@@ -106,10 +125,44 @@ class HomeViewController: UIViewController {
         }
         
         
-
+        
+        
     }
     
-
+    func updatedata() {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            setUserDataToView(withFIRUser: user)
+            
+            let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+            
+            ref.child("MoneyCoin").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let coin2 = value?["CoinBalance"] as? Int
+                self.moneyTotalLbl.text = coin2?.description
+                
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            
+        } else {
+            let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "ตกลง", style: .default, handler: { (action: UIAlertAction) in
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
+        
+    }
+    
+    
+    
     func gotoLogin() {
         let HomeNav = self.storyboard?.instantiateViewController(withIdentifier: "Login")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -125,6 +178,18 @@ class HomeViewController: UIViewController {
         appDelegate.window?.rootViewController = view
         
     }
+    
+    
+    func gotoUnlock() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "UnlockPiggybankNav") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //show window
+        appDelegate.window?.rootViewController = view
+        
+    }
+
 
 
 }

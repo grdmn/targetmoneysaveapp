@@ -14,14 +14,81 @@ import FirebaseAuth
 class CannotUnlockViewController: UIViewController {
     
     
-    var refHandle: FIRDatabaseHandle?
-    var refHandle2: FIRDatabaseHandle?
+    var calCoin:String = ""
+    var calTarget:String = ""
+    
+    var counter = 3
+    var timer = Timer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(HomeViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        
+    }
+    
+    internal func updateTimer() {
+        
+        counter = counter - 1
+        
+        print(counter)
+        
+        if(counter > 0) {
+            
+            print("true loading")
+            updatedata()
+            
+        }else {
+            counter = 3
+        }
+        
+        
+    }
+    
+    func updatedata() {
+        
+        if (FIRAuth.auth()?.currentUser) != nil {
+            
+            
+            let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
+            let userID = FIRAuth.auth()?.currentUser?.uid
+            
+            ref.child("MoneyCoin").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let coinB = value?["CoinBalance"] as? Int
+                self.calCoin = coinB!.description
+                
+                // ...
+            })
+            //print("cal coin" , calCoin)
+            
+            ref.child("Target").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let priceB = value?["Price"] as? Int
+                self.calTarget = priceB!.description
+                
+                
+                // ...
+            })
+            //print("cal target = " , calTarget)
+            
+            cal()
+            
+            
+        } else {
+            let alert = UIAlertController(title: "ผิดพลาด!", message: "ไม่มีผู้เข้าสู่ระบบ", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "ตกลง", style: .default, handler: { (action: UIAlertAction) in
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            
+        }
         
         
     }
@@ -29,103 +96,33 @@ class CannotUnlockViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (FIRAuth.auth()?.currentUser) != nil {
-            
-            let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
-            let userID = FIRAuth.auth()?.currentUser?.uid
-            
-            let refHandle4 = ref.child("Target").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
-                let pricev = snapshot.value as? NSDictionary
-                let priceval = pricev?["Price"] as! Int
-                print(priceval)
-
-            })
-            print(refHandle4)
-            
-            
-            let refHandle5 = ref.child("MoneyCoin").observe(FIRDataEventType.value, with: { (snapshot) in
-                let coinv = snapshot.value as? NSDictionary
-                let coinval = coinv?["CoinBalance"] as! Int
-                print(coinval)
-                
-            })
-            
-            print(refHandle5)
-            
-            
-            if refHandle5 == refHandle4 {
-//                gotoUnlock()
-                gotoUnlock()
-            }
-            
-            
-
         
+        
+    }
+    
+    
+    
+    func cal() {
+        
+        print("calcoin",calCoin)
+        print("caltarget",calTarget)
+        
+        
+        if calTarget >= calCoin{
+            
+            print("Equal")
+            gotoUnlock()
+        }else {
+            print("No data")
             
         }
         
-
+        
+        
         
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        
-
-    }
-    
-    
-    
-//    func calcoingt() {
-//        
-//        
-//        let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
-//        let userID = FIRAuth.auth()?.currentUser?.uid
-//        
-//        ref.child("MoneyCoin").observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            // Get user value
-//            let coinv = snapshot.value as? NSDictionary
-//            let coinval = coinv?["CoinBalance"] as! Int
-//            print(coinval)
-//        
-//        })
-//        
-//        ref.child("Target").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            // Get user value
-//            
-//            let pricev = snapshot.value as? NSDictionary
-//            let priceval = pricev?["Price"] as! Int
-//            print(priceval)
-//            
-//            
-//        })
-//
-//
-//    }
-    
-//    func calmoneytg() {
-//        
-//        let ref = FIRDatabase.database().reference(fromURL: "https://targetmoneysaveapp.firebaseio.com/")
-//        let userID = FIRAuth.auth()?.currentUser?.uid
-//        
-//        ref.child("Target").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            // Get user value
-//            
-//            let pricev = snapshot.value as? NSDictionary
-//            let priceval = pricev?["Price"] as! Int
-//            print(priceval)
-//        
-//            
-//        })
-//    
-//        
-//    }
-//
-
     @IBAction func gobacktoHome(_ sender: Any) {
         
         gotoHome()
@@ -135,7 +132,7 @@ class CannotUnlockViewController: UIViewController {
     
     func gotoHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let view = storyboard.instantiateViewController(withIdentifier: "HomeUITabBarController") as UIViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "HomeUITabBarController") as UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         //show window
         appDelegate.window?.rootViewController = view
@@ -149,8 +146,15 @@ class CannotUnlockViewController: UIViewController {
         //show window
         appDelegate.window?.rootViewController = view
         
+        stopTime()
+        
+        
     }
-
+    
+    func stopTime() {
+        timer.invalidate()
+    }
+    
     
     
 
